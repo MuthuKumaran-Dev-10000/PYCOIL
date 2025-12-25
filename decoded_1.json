@@ -1,0 +1,26 @@
+{
+  "device": "iot-22",
+  "location": "warehouse-7",
+  "readings": [
+    {
+      "humidity": 60,
+      "temp": 34,
+      "ts": "2025-01-01"
+    },
+    {
+      "humidity": 58,
+      "temp": 35,
+      "ts": "2025-01-02"
+    },
+    {
+      "humidity": 61,
+      "temp": 33,
+      "ts": "2025-01-03"
+    },
+    {
+      "humidity": 59,
+      "temp": 36,
+      "ts": "2025-01-04"
+    }
+  ]
+}

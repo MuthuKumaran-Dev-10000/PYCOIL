@@ -1,8 +1,31 @@
 {
-  "device": "sensor-xyz",
-  "area": "Tamilnadu",
-  "data": {
-    "meta": "META&ORDER=Time,place,temperature&vmap=V1:Tirunelveli;V3:Coimbatore",
-    "body": "BODY|sensordata[30]{Time,place,temperature}|3-8-2025,Madurai,49|5-9-2025,Chennai,35|2-3-2025,Madurai,35|11-1-2024,V3,42|14-2-2024,Trichy,39|9-3-2024,Salem,51|28-4-2025,Erode,47|15-5-2025,V1,33|7-6-2023,Madurai,55|21-7-2023,Chennai,29|10-8-2023,V3,38|3-9-2023,Trichy,41|19-10-2024,Salem,36|26-11-2026,Erode,44|5-12-2026,V1,32|6-1-2024,Madurai,28|17-2-2025,Chennai,53|25-3-2025,V3,37|2-4-2025,Trichy,54|14-5-2023,Salem,46|18-6-2023,Erode,33|9-7-2023,V1,45|27-8-2024,Madurai,31|15-9-2024,Chennai,52|30-10-2025,V3,40|4-11-2025,Trichy,34|12-12-2025,Salem,48|19-1-2026,Erode,50|23-2-2026,V1,43|3-3-2023,Madurai,29"
+  "system": {
+    "service": "payment-gateway",
+    "region": "ap-south-1",
+    "version": "v2.3.1"
+  },
+  "session": {
+    "session_id": "sess-98231",
+    "user_id": "user-1442",
+    "start_time": "2025-03-21T10:15:00Z"
+  },
+  "transactions": {
+    "meta": "META&ORDER=amount,city,method,status,timestamp,txn_id&tid=tbl_1&vmap=V1:SUCCESS;V2:Chennai;V3:Bangalore;V4:FAILED;V5:UPI;V6:CARD;V7:499",
+    "body": "BODY|table[5]{amount,city,method,status,timestamp,txn_id}|V7,V2,V5,V1,2025-03-21T10\\:16\\:02Z,TXN1001|1299,V2,V6,V4,2025-03-21T10\\:17\\:45Z,TXN1002|249,V3,V5,V1,2025-03-21T10\\:18\\:10Z,TXN1003|V7,V2,V5,V1,2025-03-21T10\\:19\\:55Z,TXN1004|999,V3,V6,V4,2025-03-21T10\\:21\\:33Z,TXN1005"
+  },
+  "logs": [
+    "INFO: session started",
+    "INFO: user authenticated",
+    "WARN: retrying payment",
+    "ERROR: card declined",
+    "INFO: fallback to UPI",
+    "INFO: payment completed"
+  ],
+  "summary": {
+    "total_txns": 5,
+    "success_count": 3,
+    "failed_count": 2,
+    "dominant_method": "UPI",
+    "dominant_city": "Chennai"
   }
 }

@@ -1,0 +1,8 @@
+{
+  "device": "iot-22",
+  "location": "warehouse-7",
+  "readings": {
+    "meta": "META&ORDER=humidity,temp,ts&tid=tbl_1",
+    "body": "BODY|table[4]{humidity,temp,ts}|60,34,2025-01-01|58,35,2025-01-02|61,33,2025-01-03|59,36,2025-01-04"
+  }
+}

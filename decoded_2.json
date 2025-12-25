@@ -1,0 +1,29 @@
+{
+  "service": "payment-gateway",
+  "transactions": [
+    {
+      "amount": 499,
+      "id": "TX1",
+      "method": "UPI",
+      "status": "SUCCESS"
+    },
+    {
+      "amount": 1299,
+      "id": "TX2",
+      "method": "CARD",
+      "status": "FAILED"
+    },
+    {
+      "amount": 249,
+      "id": "TX3",
+      "method": "UPI",
+      "status": "SUCCESS"
+    },
+    {
+      "amount": 499,
+      "id": "TX4",
+      "method": "UPI",
+      "status": "SUCCESS"
+    }
+  ]
+}

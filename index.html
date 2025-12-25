@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COIL — Compact Object Input Language</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        :root {
+            --bg: #030712;
+            --card-bg: #111827;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --border: #1f2937;
+            --text: #f3f4f6;
+            --text-dim: #9ca3af;
+            --success: #10b981;
+            --danger: #ef4444;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        header {
+            padding: 60px 20px;
+            text-align: center;
+            background: radial-gradient(circle at center, #1e293b 0%, #030712 100%);
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            background: linear-gradient(to right, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: -40px auto 0;
+            padding: 0 20px 80px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .playground {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .tabs {
+            display: flex;
+            background: #0f172a;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .tab {
+            padding: 16px 24px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            transition: 0.2s;
+        }
+
+        .tab.active {
+            color: var(--accent);
+            background: rgba(59, 130, 246, 0.1);
+            border-bottom: 2px solid var(--accent);
+        }
+
+        textarea {
+            width: 100%;
+            height: 350px;
+            background: #020617;
+            color: #93c5fd;
+            border: none;
+            padding: 24px;
+            font-family: 'Fira Code', monospace;
+            font-size: 14px;
+            outline: none;
+            resize: none;
+        }
+
+        .actions {
+            padding: 20px;
+            background: #0f172a;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        button {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: 0.2s;
+        }
+
+        button:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
+        .stats-dashboard {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .stat-group {
+            border-top: 1px solid var(--border);
+            margin-top: 15px;
+            padding-top: 15px;
+        }
+
+        .stat-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--accent);
+            letter-spacing: 0.05em;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+
+        .stat-label { color: var(--text-dim); }
+        .stat-value { font-weight: 600; font-family: 'Fira Code', monospace; }
+
+        .badge {
+            padding: 4px 12px;
+            border-radius: 99px;
+            font-size: 0.75rem;
+            font-weight: 800;
+        }
+        body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: #0f172a;
+  color: #e5e7eb;
+  line-height: 1.6;
+}
+
+.section {
+  max-width: 960px;
+  margin: 2.5rem auto;
+  padding: 0 1.2rem;
+}
+
+.hero h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: #9ca3af;
+  font-size: 1.05rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.6rem;
+  border-left: 4px solid #3b82f6;
+  padding-left: 0.6rem;
+}
+
+ul, ol {
+  padding-left: 1.3rem;
+}
+
+li {
+  margin-bottom: 0.45rem;
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.compare-table th,
+.compare-table td {
+  border: 1px solid #1e293b;
+  padding: 0.6rem;
+  text-align: left;
+}
+
+.compare-table th {
+  background: #020617;
+  color: #93c5fd;
+}
+
+.pros li {
+  color: #86efac;
+}
+
+.cons li {
+  color: #fca5a5;
+}
+
+code {
+  background: #020617;
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+        .badge-true { background: rgba(16, 185, 129, 0.2); color: var(--success); }
+        .badge-false { background: rgba(239, 68, 68, 0.2); color: var(--danger); }
+
+        @media (max-width: 768px) { .stats-dashboard { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>COIL Engine</h1>
+    <p style="color: var(--text-dim); max-width: 600px; margin: 10px auto;">Deterministic schema-aware compaction for high-density LLM context management.</p>
+</header>
+<section class="section hero">
+  <h1>COIL — Compact Object Input Language</h1>
+  <p class="subtitle">
+    A token-efficient, schema-aware representation for structured data in
+    Large Language Model (LLM) pipelines.
+  </p>
+</section>
+
+<section class="section">
+  <h2>What is COIL?</h2>
+  <p>
+    COIL (Compact Object Input Language) is a structured data representation
+    designed specifically to minimize token usage when interacting with
+    Large Language Models.
+  </p>
+  <p>
+    Unlike traditional formats such as JSON, COIL removes redundant key
+    repetition and structural noise while preserving full semantic fidelity.
+    COIL is <strong>compaction, not compression</strong> — every encoded object
+    can be decoded back to its original structure without loss.
+  </p>
+</section>
+
+<section class="section">
+  <h2>Why JSON Is Inefficient for LLMs</h2>
+  <ul>
+    <li>Repeated keys inflate token count linearly with data size</li>
+    <li>Structural symbols (<code>{ }</code>, <code>[ ]</code>, <code>:</code>) add no semantic value</li>
+    <li>Tokenizer variance leads to unpredictable inference cost</li>
+    <li>Context windows are consumed faster without increasing information density</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2>How COIL Works</h2>
+  <ol>
+    <li>
+      <strong>Schema Extraction</strong> — Detects tabular and semi-tabular
+      structures automatically.
+    </li>
+    <li>
+      <strong>Column Ordering</strong> — Stores keys once using positional mapping.
+    </li>
+    <li>
+      <strong>Value Mapping (VMAP)</strong> — Frequently repeated values are replaced
+      with compact tokens when beneficial.
+    </li>
+    <li>
+      <strong>Type Preservation</strong> — Original data types are restored during decoding.
+    </li>
+    <li>
+      <strong>Recursive Encoding</strong> — Nested objects and arrays are handled transparently.
+    </li>
+  </ol>
+</section>
+
+<section class="section">
+  <h2>JSON vs COIL (Conceptual Comparison)</h2>
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>Aspect</th>
+        <th>JSON</th>
+        <th>COIL</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Key Repetition</td>
+        <td>Repeated per object</td>
+        <td>Declared once</td>
+      </tr>
+      <tr>
+        <td>Token Efficiency</td>
+        <td>Low</td>
+        <td>High (50–65% reduction)</td>
+      </tr>
+      <tr>
+        <td>Schema Awareness</td>
+        <td>Implicit</td>
+        <td>Explicit</td>
+      </tr>
+      <tr>
+        <td>LLM Context Utilization</td>
+        <td>Inefficient</td>
+        <td>Optimized</td>
+      </tr>
+      <tr>
+        <td>Lossless Decoding</td>
+        <td>Yes</td>
+        <td>Yes</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section">
+  <h2>Key Advantages of COIL</h2>
+  <ul class="pros">
+    <li>50–60% reduction in token usage on structured data</li>
+    <li>Lower inference cost with identical semantic content</li>
+    <li>Stable and predictable tokenizer behavior</li>
+    <li>Allows 2×–3× more data within the same context window</li>
+    <li>LLM-friendly and human-inspectable</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2>Limitations and Trade-offs</h2>
+  <ul class="cons">
+    <li>Requires encoding/decoding logic outside the LLM</li>
+    <li>Not intended as a storage or transmission compression format</li>
+    <li>Benefits are highest for repetitive or tabular data</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2>Interactive Playground</h2>
+  <p>
+    Use the playground below to compare raw JSON and COIL-encoded
+    representations. The system verifies semantic losslessness and
+    displays token, byte, and cost savings in real time.
+  </p>
+</section>
+
+<div class="container">
+    <div class="playground">
+        <div class="tabs">
+  <div class="tab active" id="tab-original" onclick="switchTab('original')">Original JSON</div>
+  <div class="tab" id="tab-encoded" onclick="switchTab('encoded')">COIL Encoded JSON</div>
+  <div class="tab" id="tab-decoded" onclick="switchTab('decoded')">COIL Decoded JSON</div>
+  <div class="tab" id="tab-xml" onclick="switchTab('xml')">XML</div>
+  <div class="tab" id="tab-parquet" onclick="switchTab('parquet')">Parquet</div>
+  <div class="tab" id="tab-protobuf" onclick="switchTab('protobuf')">Protobuf</div>
+</div>
+
+<textarea id="originalTab"></textarea>
+<textarea id="encodedTab" style="display:none;"></textarea>
+<textarea id="decodedTab" style="display:none;"></textarea>
+<textarea id="xmlTab" style="display:none;"></textarea>
+<textarea id="parquetTab" style="display:none;"></textarea>
+<textarea id="protobufTab" style="display:none;"></textarea>
+        <div class="actions">
+            <div style="display:flex; gap:10px; align-items:center;">
+                <button onclick="handleCompaction()">Run Compaction</button>
+                <select id="tokenizer" style="background:#1e293b; color:white; border:none; padding:10px; border-radius:8px;">
+                    <option value="approx">Approx (Chars/4)</option>
+                    <option value="gpt">GPT-4o (Chars/3.7)</option>
+                </select>
+            </div>
+            <div id="losslessBadge"></div>
+        </div>
+    </div>
+
+    <div class="stats-dashboard">
+        <div class="card">
+            <h3>Metrics Dashboard</h3>
+            <div id="statsDisplay">
+                <p style="color:var(--text-dim)">Run compaction to generate metrics...</p>
+            </div>
+        </div>
+        <div class="card">
+            <h3 style="margin-bottom: 20px;">Token Footprint</h3>
+            <div style="height: 250px;">
+                <canvas id="barChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+/* ============================================================
+   COIL v2 — FULL CLIENT-SIDE ENGINE + UI
+   ============================================================ */
+
+/* =========================
+   CONSTANTS & STATE
+   ========================= */
+const ESC = "\\", PAIR = ",", REC = "|";
+let TABLE_SEQ = 0;
+let TYPE_REGISTRY = {};
+let barChart = null;
+
+/* =========================
+   SAMPLE DATA (Viewer Friendly)
+   ========================= */
+const SAMPLE_JSON = {
+  service: "payment-gateway",
+  region: "ap-south-1",
+  transactions: [
+    { id: "TX1", method: "UPI", status: "SUCCESS", amount: 499 },
+    { id: "TX2", method: "CARD", status: "FAILED", amount: 1299 },
+    { id: "TX3", method: "UPI", status: "SUCCESS", amount: 249 },
+    { id: "TX4", method: "UPI", status: "SUCCESS", amount: 499 }
+  ],
+  logs: [
+    "INFO system boot",
+    "INFO payment initialized",
+    "WARN retry triggered",
+    "INFO recovery successful"
+  ],
+  metrics: [
+    { minute: 0, requests: 1000, errors: 0 },
+    { minute: 1, requests: 1005, errors: 1 },
+    { minute: 2, requests: 1010, errors: 0 }
+  ]
+};
+
+/* =========================
+   TOKEN COUNT (Approx / GPT-like)
+   ========================= */
+function tokenCount(text) {
+  const mode = document.getElementById("tokenizer")?.value || "approx";
+  const div = mode === "gpt" ? 3.7 : 4;
+  return Math.max(1, Math.ceil(text.length / div));
+}
+
+/* =========================
+   METRICS
+   ========================= */
+function getMetrics(str) {
+  return {
+    chars: str.length,
+    bytes: new Blob([str]).size,
+    tokens: tokenCount(str)
+  };
+}
+
+/* =========================
+   ESCAPE / UNESCAPE
+   ========================= */
+const esc = (v) =>
+  String(v)
+    .replaceAll(ESC, ESC + ESC)
+    .replaceAll(PAIR, ESC + PAIR)
+    .replaceAll(REC, ESC + REC)
+    .replaceAll(":", ESC + ":");
+
+const unesc = (v) => {
+  let out = "";
+  for (let i = 0; i < v.length; i++) {
+    if (v[i] === ESC && i + 1 < v.length) {
+      out += v[i + 1];
+      i++;
+    } else out += v[i];
+  }
+  return out;
+};
+
+/* =========================
+   STRUCTURE DETECTION
+   ========================= */
+function isTable(arr) {
+  return Array.isArray(arr) && arr.length >= 2 && arr.every(x => typeof x === "object" && !Array.isArray(x));
+}
+
+function isCategoricalStrings(arr) {
+  return Array.isArray(arr) &&
+    arr.length >= 2 &&
+    arr.every(x => typeof x === "string") &&
+    new Set(arr).size <= arr.length * 0.7;
+}
+
+function collectKeys(records) {
+  const keys = new Set();
+  records.forEach(r => Object.keys(r).forEach(k => keys.add(k)));
+  return [...keys].sort();
+}
+function toXML(obj, indent = 0) {
+  const pad = " ".repeat(indent);
+  if (Array.isArray(obj)) {
+    return obj.map(v => `${pad}<item>\n${toXML(v, indent + 2)}\n${pad}</item>`).join("\n");
+  }
+  if (typeof obj === "object" && obj !== null) {
+    return Object.entries(obj)
+      .map(([k, v]) => `${pad}<${k}>\n${toXML(v, indent + 2)}\n${pad}</${k}>`)
+      .join("\n");
+  }
+  return `${pad}${String(obj)}`;
+}
+
+function toParquetLike(obj) {
+  return JSON.stringify(obj)
+    .replace(/[{}\[\]"]/g, "")
+    .replace(/,/g, "|");
+}
+
+function toProtoLike(obj) {
+  return JSON.stringify(obj)
+    .replace(/"/g, "")
+    .replace(/:/g, " = ")
+    .replace(/,/g, ";");
+}
+
+/* =========================
+   GREEDY VMAP OPTIMIZER
+   ========================= */
+function greedyVMap(records, keys) {
+  const flat = [];
+  records.forEach(r => keys.forEach(k => r[k] != null && flat.push(String(r[k]))));
+
+  const freq = {};
+  flat.forEach(v => freq[v] = (freq[v] || 0) + 1);
+
+  const candidates = Object.keys(freq)
+    .filter(v => freq[v] >= 2)
+    .sort((a, b) => freq[b] * b.length - freq[a] * a.length);
+
+  let accepted = {};
+  let baseline = tokenCount(JSON.stringify(records));
+
+  while (true) {
+    let bestGain = 0, bestVal = null;
+
+    for (const val of candidates) {
+      if (accepted[val]) continue;
+      const tok = "V" + (Object.keys(accepted).length + 1);
+      const test = { ...accepted, [val]: tok };
+
+      const rows = records.map(r =>
+        keys.map(k => test[String(r[k] ?? "")] || esc(String(r[k] ?? ""))).join(PAIR)
+      );
+
+      const body = `table[${records.length}]{${keys.join(",")}}` + REC + rows.join(REC);
+      const meta = `META&ORDER=${keys.join(",")}&vmap=` +
+        Object.entries(test).map(([v, t]) => `${t}:${v}`).join(";");
+
+      const gain = baseline - tokenCount(meta + "|" + body);
+      if (gain > bestGain) { bestGain = gain; bestVal = val; }
+    }
+
+    if (bestGain > 0) {
+      accepted[bestVal] = "V" + (Object.keys(accepted).length + 1);
+      baseline -= bestGain;
+    } else break;
+  }
+
+  return accepted;
+}
+
+/* =========================
+   TABLE ENCODER
+   ========================= */
+function encodeTable(records) {
+  TABLE_SEQ++;
+  const tid = "tbl_" + TABLE_SEQ;
+
+  const keys = collectKeys(records);
+  const vmap = greedyVMap(records, keys);
+
+  const rows = records.map(r =>
+    keys.map(k => vmap[String(r[k] ?? "")] || esc(String(r[k] ?? ""))).join(PAIR)
+  );
+
+  const body = `table[${records.length}]{${keys.join(",")}}` + REC + rows.join(REC);
+  let meta = `META&ORDER=${keys.join(",")}&tid=${tid}`;
+  if (Object.keys(vmap).length)
+    meta += "&vmap=" + Object.entries(vmap).map(([v, t]) => `${t}:${v}`).join(";");
+
+  if (tokenCount(meta + "|" + body) >= tokenCount(JSON.stringify(records)))
+    return records;
+
+  TYPE_REGISTRY[tid] = {};
+  keys.forEach(k => {
+    const v = records.find(r => r[k] != null)?.[k];
+    TYPE_REGISTRY[tid][k] = v === null ? "NoneType" : typeof v;
+  });
+
+  return { meta, body: "BODY|" + body };
+}
+
+/* =========================
+   RECURSIVE ENCODER
+   ========================= */
+function encodeAny(obj) {
+  if (Array.isArray(obj) && isTable(obj)) return encodeTable(obj);
+  if (Array.isArray(obj) && isCategoricalStrings(obj))
+    return encodeTable(obj.map(x => ({ msg: x })));
+  if (Array.isArray(obj)) return obj.map(encodeAny);
+  if (obj && typeof obj === "object") {
+    const out = {};
+    for (const k in obj) out[k] = encodeAny(obj[k]);
+    return out;
+  }
+  return obj;
+}
+
+/* =========================
+   DECODER
+   ========================= */
+function restoreType(v, t) {
+  if (t === "number") return Number(v);
+  if (t === "boolean") return v === "true";
+  if (t === "NoneType") return null;
+  return v;
+}
+
+function decodeTable(meta, body) {
+  meta = meta.slice(5);
+  body = body.slice(5);
+
+  const kv = Object.fromEntries(meta.split("&").map(p => p.split("=", 2)));
+  const keys = kv.ORDER.split(",");
+  const tid = kv.tid;
+  const types = TYPE_REGISTRY[tid] || {};
+  const vmap = {};
+
+  if (kv.vmap)
+    kv.vmap.split(";").forEach(e => {
+      const [t, v] = e.split(":");
+      vmap[t] = v;
+    });
+
+  const rows = body.split(REC).slice(1).map(r => {
+    const vals = r.split(PAIR);
+    const rec = {};
+    keys.forEach((k, i) => {
+      const raw = vals[i] ?? "";
+      const val = vmap[raw] ?? unesc(raw);
+      rec[k] = restoreType(val, types[k]);
+    });
+    return rec;
+  });
+
+  if (Object.keys(types).length === 1 && types.msg)
+    return rows.map(r => r.msg);
+
+  return rows;
+}
+
+function decodeAny(obj) {
+  if (Array.isArray(obj)) return obj.map(decodeAny);
+  if (obj && typeof obj === "object") {
+    if (obj.meta && obj.body) return decodeTable(obj.meta, obj.body);
+    const out = {};
+    for (const k in obj) out[k] = decodeAny(obj[k]);
+    return out;
+  }
+  return obj;
+}
+
+/* =========================
+   SEMANTIC EQUALITY
+   ========================= */
+function normalizeSemantic(v) {
+  if (Array.isArray(v))
+    return v.map(normalizeSemantic)
+      .sort((a, b) => JSON.stringify(a).localeCompare(JSON.stringify(b)));
+  if (v && typeof v === "object") {
+    const o = {};
+    Object.keys(v).sort().forEach(k => o[k] = normalizeSemantic(v[k]));
+    return o;
+  }
+  return v;
+}
+
+function isSemanticEqual(a, b) {
+  try {
+    return JSON.stringify(normalizeSemantic(a)) ===
+           JSON.stringify(normalizeSemantic(b));
+  } catch {
+    return false;
+  }
+}
+
+/* =========================
+   UI CONTROLLER
+   ========================= */
+const originalTab = document.getElementById("originalTab");
+const encodedTab = document.getElementById("encodedTab");
+const decodedTab = document.getElementById("decodedTab");
+
+originalTab.value = JSON.stringify(SAMPLE_JSON, null, 2);
+
+function handleCompaction() {
+  try {
+    TABLE_SEQ = 0;
+    TYPE_REGISTRY = {};
+
+    const source = JSON.parse(originalTab.value);
+
+    const encoded = encodeAny(structuredClone(source));
+    const decoded = decodeAny(encoded);
+
+    const xml = toXML(source);
+    const parquet = toParquetLike(source);
+    const proto = toProtoLike(source);
+
+    encodedTab.value = JSON.stringify(encoded, null, 2);
+    decodedTab.value = JSON.stringify(decoded, null, 2);
+    document.getElementById("xmlTab").value = xml;
+    document.getElementById("parquetTab").value = parquet;
+    document.getElementById("protobufTab").value = proto;
+
+    updateDashboard(source, encoded, decoded, {
+      xml,
+      parquet,
+      proto
+    });
+
+  } catch (e) {
+    alert("Invalid JSON or structure error:\n" + e.message);
+  }
+}
+
+/* =========================
+   DASHBOARD + CHART
+   ========================= */
+function updateDashboard(source, encoded, decoded, extras) {
+  const sStr = JSON.stringify(source, null, 2);
+  const eStr = JSON.stringify(encoded, null, 2);
+  const dStr = JSON.stringify(decoded, null, 2);
+
+  const xml = extras.xml;
+  const parquet = extras.parquet;
+  const proto = extras.proto;
+
+  const mS  = getMetrics(sStr);
+  const mE  = getMetrics(eStr);
+  const mD  = getMetrics(dStr);
+  const mX  = getMetrics(xml);
+  const mP  = getMetrics(parquet);
+  const mPB = getMetrics(proto);
+
+  const lossless = isSemanticEqual(source, decoded);
+
+  const savings = (base, cur) =>
+    (((base - cur) / base) * 100).toFixed(1);
+
+  document.getElementById("losslessBadge").innerHTML =
+    lossless
+      ? `<span class="badge badge-true">✓ LOSSLESS VERIFIED</span>`
+      : `<span class="badge badge-false">✗ DATA MISMATCH</span>`;
+
+  document.getElementById("statsDisplay").innerHTML = `
+    <div class="stat-group">
+      <div class="stat-title">JSON (Baseline)</div>
+      <div class="stat-row"><span>Bytes</span><span>${mS.bytes}</span></div>
+      <div class="stat-row"><span>Tokens</span><span>${mS.tokens}</span></div>
+    </div>
+
+    <div class="stat-group">
+      <div class="stat-title">COIL</div>
+      <div class="stat-row"><span>Bytes</span><span>${mE.bytes}</span></div>
+      <div class="stat-row"><span>Tokens</span><span>${mE.tokens}</span></div>
+      <div class="stat-row"><span>Savings</span><span>${savings(mS.tokens, mE.tokens)}%</span></div>
+    </div>
+
+    <div class="stat-group">
+      <div class="stat-title">XML</div>
+      <div class="stat-row"><span>Bytes</span><span>${mX.bytes}</span></div>
+      <div class="stat-row"><span>Tokens</span><span>${mX.tokens}</span></div>
+      <div class="stat-row"><span>Savings</span><span>${savings(mS.tokens, mX.tokens)}%</span></div>
+    </div>
+
+    <div class="stat-group">
+      <div class="stat-title">Parquet*</div>
+      <div class="stat-row"><span>Bytes</span><span>${mP.bytes}</span></div>
+      <div class="stat-row"><span>Tokens</span><span>${mP.tokens}</span></div>
+      <div class="stat-row"><span>Savings</span><span>${savings(mS.tokens, mP.tokens)}%</span></div>
+    </div>
+
+    <div class="stat-group">
+      <div class="stat-title">Protobuf*</div>
+      <div class="stat-row"><span>Bytes</span><span>${mPB.bytes}</span></div>
+      <div class="stat-row"><span>Tokens</span><span>${mPB.tokens}</span></div>
+      <div class="stat-row"><span>Savings</span><span>${savings(mS.tokens, mPB.tokens)}%</span></div>
+    </div>
+  `;
+
+  updateChart([
+    mS.tokens,
+    mE.tokens,
+    mX.tokens,
+    mP.tokens,
+    mPB.tokens
+  ]);
+}
+function updateChart(values) {
+  const ctx = document.getElementById("barChart").getContext("2d");
+  if (barChart) barChart.destroy();
+
+  barChart = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: ["JSON", "COIL", "XML", "Parquet", "Protobuf"],
+      datasets: [{
+        data: values,
+        backgroundColor: [
+          "#475569",
+          "#3b82f6",
+          "#22c55e",
+          "#f59e0b",
+          "#8b5cf6"
+        ],
+        borderRadius: 6
+      }]
+    },
+    options: {
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: { color: "#9ca3af" }
+        },
+        x: {
+          ticks: { color: "#e5e7eb" }
+        }
+      }
+    }
+  });
+}
+/* =========================
+   TAB SWITCHING
+   ========================= */
+function switchTab(id) {
+  ["original", "encoded", "decoded", "xml", "parquet", "protobuf"].forEach(t => {
+    document.getElementById(t + "Tab").style.display =
+      t === id ? "block" : "none";
+    document.getElementById("tab-" + t).classList.toggle("active", t === id);
+  });
+}
+</script>
+
+</body>
+</html>

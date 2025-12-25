@@ -1,0 +1,7 @@
+{
+  "service": "payment-gateway",
+  "transactions": {
+    "meta": "META&ORDER=amount,id,method,status&tid=tbl_2&vmap=V1:SUCCESS;V2:UPI;V3:499",
+    "body": "BODY|table[4]{amount,id,method,status}|V3,TX1,V2,V1|1299,TX2,CARD,FAILED|249,TX3,V2,V1|V3,TX4,V2,V1"
+  }
+}

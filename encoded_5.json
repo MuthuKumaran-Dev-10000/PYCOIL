@@ -1,0 +1,7 @@
+{
+  "users": {
+    "meta": "META&ORDER=action,success,user&tid=tbl_5&vmap=V1:alice;V2:login;V3:False;V4:True;V5:bob",
+    "body": "BODY|table[4]{action,success,user}|V2,V4,V1|V2,V3,V5|logout,V4,V1|retry,V3,V5"
+  },
+  "date": "2025-06-01"
+}

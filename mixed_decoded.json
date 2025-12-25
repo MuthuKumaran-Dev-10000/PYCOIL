@@ -1,0 +1,2430 @@
+{
+  "system": {
+    "service": "smart-city-analytics",
+    "region": "ap-south-1",
+    "version": "v4.7.2",
+    "deployed_at": "2025-03-01"
+  },
+  "sensors": {
+    "device_id": "iot-sensor-cluster-17",
+    "location": "traffic-junction-42",
+    "readings": [
+      {
+        "humidity": 55,
+        "pressure": 1010,
+        "temperature": 28,
+        "ts": "2025-01-01T00:00:00"
+      },
+      {
+        "humidity": 56,
+        "pressure": 1011,
+        "temperature": 29,
+        "ts": "2025-01-01T00:01:00"
+      },
+      {
+        "humidity": 57,
+        "pressure": 1012,
+        "temperature": 30,
+        "ts": "2025-01-01T00:02:00"
+      },
+      {
+        "humidity": 58,
+        "pressure": 1013,
+        "temperature": 31,
+        "ts": "2025-01-01T00:03:00"
+      },
+      {
+        "humidity": 59,
+        "pressure": 1010,
+        "temperature": 32,
+        "ts": "2025-01-01T00:04:00"
+      },
+      {
+        "humidity": 60,
+        "pressure": 1011,
+        "temperature": 33,
+        "ts": "2025-01-01T00:05:00"
+      },
+      {
+        "humidity": 61,
+        "pressure": 1012,
+        "temperature": 28,
+        "ts": "2025-01-01T00:06:00"
+      },
+      {
+        "humidity": 62,
+        "pressure": 1013,
+        "temperature": 29,
+        "ts": "2025-01-01T00:07:00"
+      },
+      {
+        "humidity": 63,
+        "pressure": 1010,
+        "temperature": 30,
+        "ts": "2025-01-01T00:08:00"
+      },
+      {
+        "humidity": 64,
+        "pressure": 1011,
+        "temperature": 31,
+        "ts": "2025-01-01T00:09:00"
+      },
+      {
+        "humidity": 55,
+        "pressure": 1012,
+        "temperature": 32,
+        "ts": "2025-01-01T00:10:00"
+      },
+      {
+        "humidity": 56,
+        "pressure": 1013,
+        "temperature": 33,
+        "ts": "2025-01-01T00:11:00"
+      },
+      {
+        "humidity": 57,
+        "pressure": 1010,
+        "temperature": 28,
+        "ts": "2025-01-01T00:12:00"
+      },
+      {
+        "humidity": 58,
+        "pressure": 1011,
+        "temperature": 29,
+        "ts": "2025-01-01T00:13:00"
+      },
+      {
+        "humidity": 59,
+        "pressure": 1012,
+        "temperature": 30,
+        "ts": "2025-01-01T00:14:00"
+      },
+      {
+        "humidity": 60,
+        "pressure": 1013,
+        "temperature": 31,
+        "ts": "2025-01-01T00:15:00"
+      },
+      {
+        "humidity": 61,
+        "pressure": 1010,
+        "temperature": 32,
+        "ts": "2025-01-01T00:16:00"
+      },
+      {
+        "humidity": 62,
+        "pressure": 1011,
+        "temperature": 33,
+        "ts": "2025-01-01T00:17:00"
+      },
+      {
+        "humidity": 63,
+        "pressure": 1012,
+        "temperature": 28,
+        "ts": "2025-01-01T00:18:00"
+      },
+      {
+        "humidity": 64,
+        "pressure": 1013,
+        "temperature": 29,
+        "ts": "2025-01-01T00:19:00"
+      },
+      {
+        "humidity": 55,
+        "pressure": 1010,
+        "temperature": 30,
+        "ts": "2025-01-01T00:20:00"
+      },
+      {
+        "humidity": 56,
+        "pressure": 1011,
+        "temperature": 31,
+        "ts": "2025-01-01T00:21:00"
+      },
+      {
+        "humidity": 57,
+        "pressure": 1012,
+        "temperature": 32,
+        "ts": "2025-01-01T00:22:00"
+      },
+      {
+        "humidity": 58,
+        "pressure": 1013,
+        "temperature": 33,
+        "ts": "2025-01-01T00:23:00"
+      },
+      {
+        "humidity": 59,
+        "pressure": 1010,
+        "temperature": 28,
+        "ts": "2025-01-01T00:24:00"
+      },
+      {
+        "humidity": 60,
+        "pressure": 1011,
+        "temperature": 29,
+        "ts": "2025-01-01T00:25:00"
+      },
+      {
+        "humidity": 61,
+        "pressure": 1012,
+        "temperature": 30,
+        "ts": "2025-01-01T00:26:00"
+      },
+      {
+        "humidity": 62,
+        "pressure": 1013,
+        "temperature": 31,
+        "ts": "2025-01-01T00:27:00"
+      },
+      {
+        "humidity": 63,
+        "pressure": 1010,
+        "temperature": 32,
+        "ts": "2025-01-01T00:28:00"
+      },
+      {
+        "humidity": 64,
+        "pressure": 1011,
+        "temperature": 33,
+        "ts": "2025-01-01T00:29:00"
+      },
+      {
+        "humidity": 55,
+        "pressure": 1012,
+        "temperature": 28,
+        "ts": "2025-01-01T00:30:00"
+      },
+      {
+        "humidity": 56,
+        "pressure": 1013,
+        "temperature": 29,
+        "ts": "2025-01-01T00:31:00"
+      },
+      {
+        "humidity": 57,
+        "pressure": 1010,
+        "temperature": 30,
+        "ts": "2025-01-01T00:32:00"
+      },
+      {
+        "humidity": 58,
+        "pressure": 1011,
+        "temperature": 31,
+        "ts": "2025-01-01T00:33:00"
+      },
+      {
+        "humidity": 59,
+        "pressure": 1012,
+        "temperature": 32,
+        "ts": "2025-01-01T00:34:00"
+      },
+      {
+        "humidity": 60,
+        "pressure": 1013,
+        "temperature": 33,
+        "ts": "2025-01-01T00:35:00"
+      },
+      {
+        "humidity": 61,
+        "pressure": 1010,
+        "temperature": 28,
+        "ts": "2025-01-01T00:36:00"
+      },
+      {
+        "humidity": 62,
+        "pressure": 1011,
+        "temperature": 29,
+        "ts": "2025-01-01T00:37:00"
+      },
+      {
+        "humidity": 63,
+        "pressure": 1012,
+        "temperature": 30,
+        "ts": "2025-01-01T00:38:00"
+      },
+      {
+        "humidity": 64,
+        "pressure": 1013,
+        "temperature": 31,
+        "ts": "2025-01-01T00:39:00"
+      },
+      {
+        "humidity": 55,
+        "pressure": 1010,
+        "temperature": 32,
+        "ts": "2025-01-01T00:40:00"
+      },
+      {
+        "humidity": 56,
+        "pressure": 1011,
+        "temperature": 33,
+        "ts": "2025-01-01T00:41:00"
+      },
+      {
+        "humidity": 57,
+        "pressure": 1012,
+        "temperature": 28,
+        "ts": "2025-01-01T00:42:00"
+      },
+      {
+        "humidity": 58,
+        "pressure": 1013,
+        "temperature": 29,
+        "ts": "2025-01-01T00:43:00"
+      },
+      {
+        "humidity": 59,
+        "pressure": 1010,
+        "temperature": 30,
+        "ts": "2025-01-01T00:44:00"
+      },
+      {
+        "humidity": 60,
+        "pressure": 1011,
+        "temperature": 31,
+        "ts": "2025-01-01T00:45:00"
+      },
+      {
+        "humidity": 61,
+        "pressure": 1012,
+        "temperature": 32,
+        "ts": "2025-01-01T00:46:00"
+      },
+      {
+        "humidity": 62,
+        "pressure": 1013,
+        "temperature": 33,
+        "ts": "2025-01-01T00:47:00"
+      },
+      {
+        "humidity": 63,
+        "pressure": 1010,
+        "temperature": 28,
+        "ts": "2025-01-01T00:48:00"
+      },
+      {
+        "humidity": 64,
+        "pressure": 1011,
+        "temperature": 29,
+        "ts": "2025-01-01T00:49:00"
+      },
+      {
+        "humidity": 55,
+        "pressure": 1012,
+        "temperature": 30,
+        "ts": "2025-01-01T00:50:00"
+      },
+      {
+        "humidity": 56,
+        "pressure": 1013,
+        "temperature": 31,
+        "ts": "2025-01-01T00:51:00"
+      },
+      {
+        "humidity": 57,
+        "pressure": 1010,
+        "temperature": 32,
+        "ts": "2025-01-01T00:52:00"
+      },
+      {
+        "humidity": 58,
+        "pressure": 1011,
+        "temperature": 33,
+        "ts": "2025-01-01T00:53:00"
+      },
+      {
+        "humidity": 59,
+        "pressure": 1012,
+        "temperature": 28,
+        "ts": "2025-01-01T00:54:00"
+      },
+      {
+        "humidity": 60,
+        "pressure": 1013,
+        "temperature": 29,
+        "ts": "2025-01-01T00:55:00"
+      },
+      {
+        "humidity": 61,
+        "pressure": 1010,
+        "temperature": 30,
+        "ts": "2025-01-01T00:56:00"
+      },
+      {
+        "humidity": 62,
+        "pressure": 1011,
+        "temperature": 31,
+        "ts": "2025-01-01T00:57:00"
+      },
+      {
+        "humidity": 63,
+        "pressure": 1012,
+        "temperature": 32,
+        "ts": "2025-01-01T00:58:00"
+      },
+      {
+        "humidity": 64,
+        "pressure": 1013,
+        "temperature": 33,
+        "ts": "2025-01-01T00:59:00"
+      },
+      {
+        "humidity": 55,
+        "pressure": 1010,
+        "temperature": 28,
+        "ts": "2025-01-01T01:00:00"
+      },
+      {
+        "humidity": 56,
+        "pressure": 1011,
+        "temperature": 29,
+        "ts": "2025-01-01T01:01:00"
+      },
+      {
+        "humidity": 57,
+        "pressure": 1012,
+        "temperature": 30,
+        "ts": "2025-01-01T01:02:00"
+      },
+      {
+        "humidity": 58,
+        "pressure": 1013,
+        "temperature": 31,
+        "ts": "2025-01-01T01:03:00"
+      },
+      {
+        "humidity": 59,
+        "pressure": 1010,
+        "temperature": 32,
+        "ts": "2025-01-01T01:04:00"
+      },
+      {
+        "humidity": 60,
+        "pressure": 1011,
+        "temperature": 33,
+        "ts": "2025-01-01T01:05:00"
+      },
+      {
+        "humidity": 61,
+        "pressure": 1012,
+        "temperature": 28,
+        "ts": "2025-01-01T01:06:00"
+      },
+      {
+        "humidity": 62,
+        "pressure": 1013,
+        "temperature": 29,
+        "ts": "2025-01-01T01:07:00"
+      },
+      {
+        "humidity": 63,
+        "pressure": 1010,
+        "temperature": 30,
+        "ts": "2025-01-01T01:08:00"
+      },
+      {
+        "humidity": 64,
+        "pressure": 1011,
+        "temperature": 31,
+        "ts": "2025-01-01T01:09:00"
+      },
+      {
+        "humidity": 55,
+        "pressure": 1012,
+        "temperature": 32,
+        "ts": "2025-01-01T01:10:00"
+      },
+      {
+        "humidity": 56,
+        "pressure": 1013,
+        "temperature": 33,
+        "ts": "2025-01-01T01:11:00"
+      },
+      {
+        "humidity": 57,
+        "pressure": 1010,
+        "temperature": 28,
+        "ts": "2025-01-01T01:12:00"
+      },
+      {
+        "humidity": 58,
+        "pressure": 1011,
+        "temperature": 29,
+        "ts": "2025-01-01T01:13:00"
+      },
+      {
+        "humidity": 59,
+        "pressure": 1012,
+        "temperature": 30,
+        "ts": "2025-01-01T01:14:00"
+      },
+      {
+        "humidity": 60,
+        "pressure": 1013,
+        "temperature": 31,
+        "ts": "2025-01-01T01:15:00"
+      },
+      {
+        "humidity": 61,
+        "pressure": 1010,
+        "temperature": 32,
+        "ts": "2025-01-01T01:16:00"
+      },
+      {
+        "humidity": 62,
+        "pressure": 1011,
+        "temperature": 33,
+        "ts": "2025-01-01T01:17:00"
+      },
+      {
+        "humidity": 63,
+        "pressure": 1012,
+        "temperature": 28,
+        "ts": "2025-01-01T01:18:00"
+      },
+      {
+        "humidity": 64,
+        "pressure": 1013,
+        "temperature": 29,
+        "ts": "2025-01-01T01:19:00"
+      },
+      {
+        "humidity": 55,
+        "pressure": 1010,
+        "temperature": 30,
+        "ts": "2025-01-01T01:20:00"
+      },
+      {
+        "humidity": 56,
+        "pressure": 1011,
+        "temperature": 31,
+        "ts": "2025-01-01T01:21:00"
+      },
+      {
+        "humidity": 57,
+        "pressure": 1012,
+        "temperature": 32,
+        "ts": "2025-01-01T01:22:00"
+      },
+      {
+        "humidity": 58,
+        "pressure": 1013,
+        "temperature": 33,
+        "ts": "2025-01-01T01:23:00"
+      },
+      {
+        "humidity": 59,
+        "pressure": 1010,
+        "temperature": 28,
+        "ts": "2025-01-01T01:24:00"
+      },
+      {
+        "humidity": 60,
+        "pressure": 1011,
+        "temperature": 29,
+        "ts": "2025-01-01T01:25:00"
+      },
+      {
+        "humidity": 61,
+        "pressure": 1012,
+        "temperature": 30,
+        "ts": "2025-01-01T01:26:00"
+      },
+      {
+        "humidity": 62,
+        "pressure": 1013,
+        "temperature": 31,
+        "ts": "2025-01-01T01:27:00"
+      },
+      {
+        "humidity": 63,
+        "pressure": 1010,
+        "temperature": 32,
+        "ts": "2025-01-01T01:28:00"
+      },
+      {
+        "humidity": 64,
+        "pressure": 1011,
+        "temperature": 33,
+        "ts": "2025-01-01T01:29:00"
+      },
+      {
+        "humidity": 55,
+        "pressure": 1012,
+        "temperature": 28,
+        "ts": "2025-01-01T01:30:00"
+      },
+      {
+        "humidity": 56,
+        "pressure": 1013,
+        "temperature": 29,
+        "ts": "2025-01-01T01:31:00"
+      },
+      {
+        "humidity": 57,
+        "pressure": 1010,
+        "temperature": 30,
+        "ts": "2025-01-01T01:32:00"
+      },
+      {
+        "humidity": 58,
+        "pressure": 1011,
+        "temperature": 31,
+        "ts": "2025-01-01T01:33:00"
+      },
+      {
+        "humidity": 59,
+        "pressure": 1012,
+        "temperature": 32,
+        "ts": "2025-01-01T01:34:00"
+      },
+      {
+        "humidity": 60,
+        "pressure": 1013,
+        "temperature": 33,
+        "ts": "2025-01-01T01:35:00"
+      },
+      {
+        "humidity": 61,
+        "pressure": 1010,
+        "temperature": 28,
+        "ts": "2025-01-01T01:36:00"
+      },
+      {
+        "humidity": 62,
+        "pressure": 1011,
+        "temperature": 29,
+        "ts": "2025-01-01T01:37:00"
+      },
+      {
+        "humidity": 63,
+        "pressure": 1012,
+        "temperature": 30,
+        "ts": "2025-01-01T01:38:00"
+      },
+      {
+        "humidity": 64,
+        "pressure": 1013,
+        "temperature": 31,
+        "ts": "2025-01-01T01:39:00"
+      },
+      {
+        "humidity": 55,
+        "pressure": 1010,
+        "temperature": 32,
+        "ts": "2025-01-01T01:40:00"
+      },
+      {
+        "humidity": 56,
+        "pressure": 1011,
+        "temperature": 33,
+        "ts": "2025-01-01T01:41:00"
+      },
+      {
+        "humidity": 57,
+        "pressure": 1012,
+        "temperature": 28,
+        "ts": "2025-01-01T01:42:00"
+      },
+      {
+        "humidity": 58,
+        "pressure": 1013,
+        "temperature": 29,
+        "ts": "2025-01-01T01:43:00"
+      },
+      {
+        "humidity": 59,
+        "pressure": 1010,
+        "temperature": 30,
+        "ts": "2025-01-01T01:44:00"
+      },
+      {
+        "humidity": 60,
+        "pressure": 1011,
+        "temperature": 31,
+        "ts": "2025-01-01T01:45:00"
+      },
+      {
+        "humidity": 61,
+        "pressure": 1012,
+        "temperature": 32,
+        "ts": "2025-01-01T01:46:00"
+      },
+      {
+        "humidity": 62,
+        "pressure": 1013,
+        "temperature": 33,
+        "ts": "2025-01-01T01:47:00"
+      },
+      {
+        "humidity": 63,
+        "pressure": 1010,
+        "temperature": 28,
+        "ts": "2025-01-01T01:48:00"
+      },
+      {
+        "humidity": 64,
+        "pressure": 1011,
+        "temperature": 29,
+        "ts": "2025-01-01T01:49:00"
+      },
+      {
+        "humidity": 55,
+        "pressure": 1012,
+        "temperature": 30,
+        "ts": "2025-01-01T01:50:00"
+      },
+      {
+        "humidity": 56,
+        "pressure": 1013,
+        "temperature": 31,
+        "ts": "2025-01-01T01:51:00"
+      },
+      {
+        "humidity": 57,
+        "pressure": 1010,
+        "temperature": 32,
+        "ts": "2025-01-01T01:52:00"
+      },
+      {
+        "humidity": 58,
+        "pressure": 1011,
+        "temperature": 33,
+        "ts": "2025-01-01T01:53:00"
+      },
+      {
+        "humidity": 59,
+        "pressure": 1012,
+        "temperature": 28,
+        "ts": "2025-01-01T01:54:00"
+      },
+      {
+        "humidity": 60,
+        "pressure": 1013,
+        "temperature": 29,
+        "ts": "2025-01-01T01:55:00"
+      },
+      {
+        "humidity": 61,
+        "pressure": 1010,
+        "temperature": 30,
+        "ts": "2025-01-01T01:56:00"
+      },
+      {
+        "humidity": 62,
+        "pressure": 1011,
+        "temperature": 31,
+        "ts": "2025-01-01T01:57:00"
+      },
+      {
+        "humidity": 63,
+        "pressure": 1012,
+        "temperature": 32,
+        "ts": "2025-01-01T01:58:00"
+      },
+      {
+        "humidity": 64,
+        "pressure": 1013,
+        "temperature": 33,
+        "ts": "2025-01-01T01:59:00"
+      }
+    ]
+  },
+  "transactions": {
+    "provider": "city-pay",
+    "currency": "INR",
+    "records": [
+      {
+        "amount": 199,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:00:00",
+        "txn_id": "TXN00000"
+      },
+      {
+        "amount": 299,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:00:37",
+        "txn_id": "TXN00001"
+      },
+      {
+        "amount": 499,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:01:14",
+        "txn_id": "TXN00002"
+      },
+      {
+        "amount": 999,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:01:51",
+        "txn_id": "TXN00003"
+      },
+      {
+        "amount": 199,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:02:28",
+        "txn_id": "TXN00004"
+      },
+      {
+        "amount": 299,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:03:05",
+        "txn_id": "TXN00005"
+      },
+      {
+        "amount": 499,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:03:42",
+        "txn_id": "TXN00006"
+      },
+      {
+        "amount": 999,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:04:19",
+        "txn_id": "TXN00007"
+      },
+      {
+        "amount": 199,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:04:56",
+        "txn_id": "TXN00008"
+      },
+      {
+        "amount": 299,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:05:33",
+        "txn_id": "TXN00009"
+      },
+      {
+        "amount": 499,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:06:10",
+        "txn_id": "TXN00010"
+      },
+      {
+        "amount": 999,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:06:47",
+        "txn_id": "TXN00011"
+      },
+      {
+        "amount": 199,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:07:24",
+        "txn_id": "TXN00012"
+      },
+      {
+        "amount": 299,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:08:01",
+        "txn_id": "TXN00013"
+      },
+      {
+        "amount": 499,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:08:38",
+        "txn_id": "TXN00014"
+      },
+      {
+        "amount": 999,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:09:15",
+        "txn_id": "TXN00015"
+      },
+      {
+        "amount": 199,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:09:52",
+        "txn_id": "TXN00016"
+      },
+      {
+        "amount": 299,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:10:29",
+        "txn_id": "TXN00017"
+      },
+      {
+        "amount": 499,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:11:06",
+        "txn_id": "TXN00018"
+      },
+      {
+        "amount": 999,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:11:43",
+        "txn_id": "TXN00019"
+      },
+      {
+        "amount": 199,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:12:20",
+        "txn_id": "TXN00020"
+      },
+      {
+        "amount": 299,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:12:57",
+        "txn_id": "TXN00021"
+      },
+      {
+        "amount": 499,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:13:34",
+        "txn_id": "TXN00022"
+      },
+      {
+        "amount": 999,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:14:11",
+        "txn_id": "TXN00023"
+      },
+      {
+        "amount": 199,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:14:48",
+        "txn_id": "TXN00024"
+      },
+      {
+        "amount": 299,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:15:25",
+        "txn_id": "TXN00025"
+      },
+      {
+        "amount": 499,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:16:02",
+        "txn_id": "TXN00026"
+      },
+      {
+        "amount": 999,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:16:39",
+        "txn_id": "TXN00027"
+      },
+      {
+        "amount": 199,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:17:16",
+        "txn_id": "TXN00028"
+      },
+      {
+        "amount": 299,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:17:53",
+        "txn_id": "TXN00029"
+      },
+      {
+        "amount": 499,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:18:30",
+        "txn_id": "TXN00030"
+      },
+      {
+        "amount": 999,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:19:07",
+        "txn_id": "TXN00031"
+      },
+      {
+        "amount": 199,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:19:44",
+        "txn_id": "TXN00032"
+      },
+      {
+        "amount": 299,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:20:21",
+        "txn_id": "TXN00033"
+      },
+      {
+        "amount": 499,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:20:58",
+        "txn_id": "TXN00034"
+      },
+      {
+        "amount": 999,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:21:35",
+        "txn_id": "TXN00035"
+      },
+      {
+        "amount": 199,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:22:12",
+        "txn_id": "TXN00036"
+      },
+      {
+        "amount": 299,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:22:49",
+        "txn_id": "TXN00037"
+      },
+      {
+        "amount": 499,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:23:26",
+        "txn_id": "TXN00038"
+      },
+      {
+        "amount": 999,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:24:03",
+        "txn_id": "TXN00039"
+      },
+      {
+        "amount": 199,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:24:40",
+        "txn_id": "TXN00040"
+      },
+      {
+        "amount": 299,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:25:17",
+        "txn_id": "TXN00041"
+      },
+      {
+        "amount": 499,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:25:54",
+        "txn_id": "TXN00042"
+      },
+      {
+        "amount": 999,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:26:31",
+        "txn_id": "TXN00043"
+      },
+      {
+        "amount": 199,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:27:08",
+        "txn_id": "TXN00044"
+      },
+      {
+        "amount": 299,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:27:45",
+        "txn_id": "TXN00045"
+      },
+      {
+        "amount": 499,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:28:22",
+        "txn_id": "TXN00046"
+      },
+      {
+        "amount": 999,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:28:59",
+        "txn_id": "TXN00047"
+      },
+      {
+        "amount": 199,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:29:36",
+        "txn_id": "TXN00048"
+      },
+      {
+        "amount": 299,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:30:13",
+        "txn_id": "TXN00049"
+      },
+      {
+        "amount": 499,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:30:50",
+        "txn_id": "TXN00050"
+      },
+      {
+        "amount": 999,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:31:27",
+        "txn_id": "TXN00051"
+      },
+      {
+        "amount": 199,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:32:04",
+        "txn_id": "TXN00052"
+      },
+      {
+        "amount": 299,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:32:41",
+        "txn_id": "TXN00053"
+      },
+      {
+        "amount": 499,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:33:18",
+        "txn_id": "TXN00054"
+      },
+      {
+        "amount": 999,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:33:55",
+        "txn_id": "TXN00055"
+      },
+      {
+        "amount": 199,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:34:32",
+        "txn_id": "TXN00056"
+      },
+      {
+        "amount": 299,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:35:09",
+        "txn_id": "TXN00057"
+      },
+      {
+        "amount": 499,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:35:46",
+        "txn_id": "TXN00058"
+      },
+      {
+        "amount": 999,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:36:23",
+        "txn_id": "TXN00059"
+      },
+      {
+        "amount": 199,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:37:00",
+        "txn_id": "TXN00060"
+      },
+      {
+        "amount": 299,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:37:37",
+        "txn_id": "TXN00061"
+      },
+      {
+        "amount": 499,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:38:14",
+        "txn_id": "TXN00062"
+      },
+      {
+        "amount": 999,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:38:51",
+        "txn_id": "TXN00063"
+      },
+      {
+        "amount": 199,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:39:28",
+        "txn_id": "TXN00064"
+      },
+      {
+        "amount": 299,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:40:05",
+        "txn_id": "TXN00065"
+      },
+      {
+        "amount": 499,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:40:42",
+        "txn_id": "TXN00066"
+      },
+      {
+        "amount": 999,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:41:19",
+        "txn_id": "TXN00067"
+      },
+      {
+        "amount": 199,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:41:56",
+        "txn_id": "TXN00068"
+      },
+      {
+        "amount": 299,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:42:33",
+        "txn_id": "TXN00069"
+      },
+      {
+        "amount": 499,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:43:10",
+        "txn_id": "TXN00070"
+      },
+      {
+        "amount": 999,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:43:47",
+        "txn_id": "TXN00071"
+      },
+      {
+        "amount": 199,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:44:24",
+        "txn_id": "TXN00072"
+      },
+      {
+        "amount": 299,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:45:01",
+        "txn_id": "TXN00073"
+      },
+      {
+        "amount": 499,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:45:38",
+        "txn_id": "TXN00074"
+      },
+      {
+        "amount": 999,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:46:15",
+        "txn_id": "TXN00075"
+      },
+      {
+        "amount": 199,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:46:52",
+        "txn_id": "TXN00076"
+      },
+      {
+        "amount": 299,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:47:29",
+        "txn_id": "TXN00077"
+      },
+      {
+        "amount": 499,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:48:06",
+        "txn_id": "TXN00078"
+      },
+      {
+        "amount": 999,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:48:43",
+        "txn_id": "TXN00079"
+      },
+      {
+        "amount": 199,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:49:20",
+        "txn_id": "TXN00080"
+      },
+      {
+        "amount": 299,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:49:57",
+        "txn_id": "TXN00081"
+      },
+      {
+        "amount": 499,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:50:34",
+        "txn_id": "TXN00082"
+      },
+      {
+        "amount": 999,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:51:11",
+        "txn_id": "TXN00083"
+      },
+      {
+        "amount": 199,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:51:48",
+        "txn_id": "TXN00084"
+      },
+      {
+        "amount": 299,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:52:25",
+        "txn_id": "TXN00085"
+      },
+      {
+        "amount": 499,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:53:02",
+        "txn_id": "TXN00086"
+      },
+      {
+        "amount": 999,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:53:39",
+        "txn_id": "TXN00087"
+      },
+      {
+        "amount": 199,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:54:16",
+        "txn_id": "TXN00088"
+      },
+      {
+        "amount": 299,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:54:53",
+        "txn_id": "TXN00089"
+      },
+      {
+        "amount": 499,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:55:30",
+        "txn_id": "TXN00090"
+      },
+      {
+        "amount": 999,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:56:07",
+        "txn_id": "TXN00091"
+      },
+      {
+        "amount": 199,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:56:44",
+        "txn_id": "TXN00092"
+      },
+      {
+        "amount": 299,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:57:21",
+        "txn_id": "TXN00093"
+      },
+      {
+        "amount": 499,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:57:58",
+        "txn_id": "TXN00094"
+      },
+      {
+        "amount": 999,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:58:35",
+        "txn_id": "TXN00095"
+      },
+      {
+        "amount": 199,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T00:59:12",
+        "txn_id": "TXN00096"
+      },
+      {
+        "amount": 299,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T00:59:49",
+        "txn_id": "TXN00097"
+      },
+      {
+        "amount": 499,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T01:00:26",
+        "txn_id": "TXN00098"
+      },
+      {
+        "amount": 999,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T01:01:03",
+        "txn_id": "TXN00099"
+      },
+      {
+        "amount": 199,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T01:01:40",
+        "txn_id": "TXN00100"
+      },
+      {
+        "amount": 299,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T01:02:17",
+        "txn_id": "TXN00101"
+      },
+      {
+        "amount": 499,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T01:02:54",
+        "txn_id": "TXN00102"
+      },
+      {
+        "amount": 999,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T01:03:31",
+        "txn_id": "TXN00103"
+      },
+      {
+        "amount": 199,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T01:04:08",
+        "txn_id": "TXN00104"
+      },
+      {
+        "amount": 299,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T01:04:45",
+        "txn_id": "TXN00105"
+      },
+      {
+        "amount": 499,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T01:05:22",
+        "txn_id": "TXN00106"
+      },
+      {
+        "amount": 999,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T01:05:59",
+        "txn_id": "TXN00107"
+      },
+      {
+        "amount": 199,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T01:06:36",
+        "txn_id": "TXN00108"
+      },
+      {
+        "amount": 299,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T01:07:13",
+        "txn_id": "TXN00109"
+      },
+      {
+        "amount": 499,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T01:07:50",
+        "txn_id": "TXN00110"
+      },
+      {
+        "amount": 999,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T01:08:27",
+        "txn_id": "TXN00111"
+      },
+      {
+        "amount": 199,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T01:09:04",
+        "txn_id": "TXN00112"
+      },
+      {
+        "amount": 299,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T01:09:41",
+        "txn_id": "TXN00113"
+      },
+      {
+        "amount": 499,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T01:10:18",
+        "txn_id": "TXN00114"
+      },
+      {
+        "amount": 999,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T01:10:55",
+        "txn_id": "TXN00115"
+      },
+      {
+        "amount": 199,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T01:11:32",
+        "txn_id": "TXN00116"
+      },
+      {
+        "amount": 299,
+        "city": "Chennai",
+        "method": "UPI",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T01:12:09",
+        "txn_id": "TXN00117"
+      },
+      {
+        "amount": 499,
+        "city": "Bangalore",
+        "method": "CARD",
+        "status": "SUCCESS",
+        "timestamp": "2025-03-21T01:12:46",
+        "txn_id": "TXN00118"
+      },
+      {
+        "amount": 999,
+        "city": "Hyderabad",
+        "method": "NETBANKING",
+        "status": "FAILED",
+        "timestamp": "2025-03-21T01:13:23",
+        "txn_id": "TXN00119"
+      }
+    ]
+  },
+  "metrics": [
+    {
+      "errors": 0,
+      "minute": 0,
+      "requests": 1000
+    },
+    {
+      "errors": 1,
+      "minute": 1,
+      "requests": 1003
+    },
+    {
+      "errors": 2,
+      "minute": 2,
+      "requests": 1006
+    },
+    {
+      "errors": 3,
+      "minute": 3,
+      "requests": 1009
+    },
+    {
+      "errors": 4,
+      "minute": 4,
+      "requests": 1012
+    },
+    {
+      "errors": 0,
+      "minute": 5,
+      "requests": 1015
+    },
+    {
+      "errors": 1,
+      "minute": 6,
+      "requests": 1018
+    },
+    {
+      "errors": 2,
+      "minute": 7,
+      "requests": 1021
+    },
+    {
+      "errors": 3,
+      "minute": 8,
+      "requests": 1024
+    },
+    {
+      "errors": 4,
+      "minute": 9,
+      "requests": 1027
+    },
+    {
+      "errors": 0,
+      "minute": 10,
+      "requests": 1030
+    },
+    {
+      "errors": 1,
+      "minute": 11,
+      "requests": 1033
+    },
+    {
+      "errors": 2,
+      "minute": 12,
+      "requests": 1036
+    },
+    {
+      "errors": 3,
+      "minute": 13,
+      "requests": 1039
+    },
+    {
+      "errors": 4,
+      "minute": 14,
+      "requests": 1042
+    },
+    {
+      "errors": 0,
+      "minute": 15,
+      "requests": 1045
+    },
+    {
+      "errors": 1,
+      "minute": 16,
+      "requests": 1048
+    },
+    {
+      "errors": 2,
+      "minute": 17,
+      "requests": 1051
+    },
+    {
+      "errors": 3,
+      "minute": 18,
+      "requests": 1054
+    },
+    {
+      "errors": 4,
+      "minute": 19,
+      "requests": 1057
+    },
+    {
+      "errors": 0,
+      "minute": 20,
+      "requests": 1060
+    },
+    {
+      "errors": 1,
+      "minute": 21,
+      "requests": 1063
+    },
+    {
+      "errors": 2,
+      "minute": 22,
+      "requests": 1066
+    },
+    {
+      "errors": 3,
+      "minute": 23,
+      "requests": 1069
+    },
+    {
+      "errors": 4,
+      "minute": 24,
+      "requests": 1072
+    },
+    {
+      "errors": 0,
+      "minute": 25,
+      "requests": 1075
+    },
+    {
+      "errors": 1,
+      "minute": 26,
+      "requests": 1078
+    },
+    {
+      "errors": 2,
+      "minute": 27,
+      "requests": 1081
+    },
+    {
+      "errors": 3,
+      "minute": 28,
+      "requests": 1084
+    },
+    {
+      "errors": 4,
+      "minute": 29,
+      "requests": 1087
+    },
+    {
+      "errors": 0,
+      "minute": 30,
+      "requests": 1090
+    },
+    {
+      "errors": 1,
+      "minute": 31,
+      "requests": 1093
+    },
+    {
+      "errors": 2,
+      "minute": 32,
+      "requests": 1096
+    },
+    {
+      "errors": 3,
+      "minute": 33,
+      "requests": 1099
+    },
+    {
+      "errors": 4,
+      "minute": 34,
+      "requests": 1102
+    },
+    {
+      "errors": 0,
+      "minute": 35,
+      "requests": 1105
+    },
+    {
+      "errors": 1,
+      "minute": 36,
+      "requests": 1108
+    },
+    {
+      "errors": 2,
+      "minute": 37,
+      "requests": 1111
+    },
+    {
+      "errors": 3,
+      "minute": 38,
+      "requests": 1114
+    },
+    {
+      "errors": 4,
+      "minute": 39,
+      "requests": 1117
+    },
+    {
+      "errors": 0,
+      "minute": 40,
+      "requests": 1120
+    },
+    {
+      "errors": 1,
+      "minute": 41,
+      "requests": 1123
+    },
+    {
+      "errors": 2,
+      "minute": 42,
+      "requests": 1126
+    },
+    {
+      "errors": 3,
+      "minute": 43,
+      "requests": 1129
+    },
+    {
+      "errors": 4,
+      "minute": 44,
+      "requests": 1132
+    },
+    {
+      "errors": 0,
+      "minute": 45,
+      "requests": 1135
+    },
+    {
+      "errors": 1,
+      "minute": 46,
+      "requests": 1138
+    },
+    {
+      "errors": 2,
+      "minute": 47,
+      "requests": 1141
+    },
+    {
+      "errors": 3,
+      "minute": 48,
+      "requests": 1144
+    },
+    {
+      "errors": 4,
+      "minute": 49,
+      "requests": 1147
+    },
+    {
+      "errors": 0,
+      "minute": 50,
+      "requests": 1150
+    },
+    {
+      "errors": 1,
+      "minute": 51,
+      "requests": 1153
+    },
+    {
+      "errors": 2,
+      "minute": 52,
+      "requests": 1156
+    },
+    {
+      "errors": 3,
+      "minute": 53,
+      "requests": 1159
+    },
+    {
+      "errors": 4,
+      "minute": 54,
+      "requests": 1162
+    },
+    {
+      "errors": 0,
+      "minute": 55,
+      "requests": 1165
+    },
+    {
+      "errors": 1,
+      "minute": 56,
+      "requests": 1168
+    },
+    {
+      "errors": 2,
+      "minute": 57,
+      "requests": 1171
+    },
+    {
+      "errors": 3,
+      "minute": 58,
+      "requests": 1174
+    },
+    {
+      "errors": 4,
+      "minute": 59,
+      "requests": 1177
+    },
+    {
+      "errors": 0,
+      "minute": 60,
+      "requests": 1180
+    },
+    {
+      "errors": 1,
+      "minute": 61,
+      "requests": 1183
+    },
+    {
+      "errors": 2,
+      "minute": 62,
+      "requests": 1186
+    },
+    {
+      "errors": 3,
+      "minute": 63,
+      "requests": 1189
+    },
+    {
+      "errors": 4,
+      "minute": 64,
+      "requests": 1192
+    },
+    {
+      "errors": 0,
+      "minute": 65,
+      "requests": 1195
+    },
+    {
+      "errors": 1,
+      "minute": 66,
+      "requests": 1198
+    },
+    {
+      "errors": 2,
+      "minute": 67,
+      "requests": 1201
+    },
+    {
+      "errors": 3,
+      "minute": 68,
+      "requests": 1204
+    },
+    {
+      "errors": 4,
+      "minute": 69,
+      "requests": 1207
+    },
+    {
+      "errors": 0,
+      "minute": 70,
+      "requests": 1210
+    },
+    {
+      "errors": 1,
+      "minute": 71,
+      "requests": 1213
+    },
+    {
+      "errors": 2,
+      "minute": 72,
+      "requests": 1216
+    },
+    {
+      "errors": 3,
+      "minute": 73,
+      "requests": 1219
+    },
+    {
+      "errors": 4,
+      "minute": 74,
+      "requests": 1222
+    },
+    {
+      "errors": 0,
+      "minute": 75,
+      "requests": 1225
+    },
+    {
+      "errors": 1,
+      "minute": 76,
+      "requests": 1228
+    },
+    {
+      "errors": 2,
+      "minute": 77,
+      "requests": 1231
+    },
+    {
+      "errors": 3,
+      "minute": 78,
+      "requests": 1234
+    },
+    {
+      "errors": 4,
+      "minute": 79,
+      "requests": 1237
+    },
+    {
+      "errors": 0,
+      "minute": 80,
+      "requests": 1240
+    },
+    {
+      "errors": 1,
+      "minute": 81,
+      "requests": 1243
+    },
+    {
+      "errors": 2,
+      "minute": 82,
+      "requests": 1246
+    },
+    {
+      "errors": 3,
+      "minute": 83,
+      "requests": 1249
+    },
+    {
+      "errors": 4,
+      "minute": 84,
+      "requests": 1252
+    },
+    {
+      "errors": 0,
+      "minute": 85,
+      "requests": 1255
+    },
+    {
+      "errors": 1,
+      "minute": 86,
+      "requests": 1258
+    },
+    {
+      "errors": 2,
+      "minute": 87,
+      "requests": 1261
+    },
+    {
+      "errors": 3,
+      "minute": 88,
+      "requests": 1264
+    },
+    {
+      "errors": 4,
+      "minute": 89,
+      "requests": 1267
+    },
+    {
+      "errors": 0,
+      "minute": 90,
+      "requests": 1270
+    },
+    {
+      "errors": 1,
+      "minute": 91,
+      "requests": 1273
+    },
+    {
+      "errors": 2,
+      "minute": 92,
+      "requests": 1276
+    },
+    {
+      "errors": 3,
+      "minute": 93,
+      "requests": 1279
+    },
+    {
+      "errors": 4,
+      "minute": 94,
+      "requests": 1282
+    },
+    {
+      "errors": 0,
+      "minute": 95,
+      "requests": 1285
+    },
+    {
+      "errors": 1,
+      "minute": 96,
+      "requests": 1288
+    },
+    {
+      "errors": 2,
+      "minute": 97,
+      "requests": 1291
+    },
+    {
+      "errors": 3,
+      "minute": 98,
+      "requests": 1294
+    },
+    {
+      "errors": 4,
+      "minute": 99,
+      "requests": 1297
+    },
+    {
+      "errors": 0,
+      "minute": 100,
+      "requests": 1300
+    },
+    {
+      "errors": 1,
+      "minute": 101,
+      "requests": 1303
+    },
+    {
+      "errors": 2,
+      "minute": 102,
+      "requests": 1306
+    },
+    {
+      "errors": 3,
+      "minute": 103,
+      "requests": 1309
+    },
+    {
+      "errors": 4,
+      "minute": 104,
+      "requests": 1312
+    },
+    {
+      "errors": 0,
+      "minute": 105,
+      "requests": 1315
+    },
+    {
+      "errors": 1,
+      "minute": 106,
+      "requests": 1318
+    },
+    {
+      "errors": 2,
+      "minute": 107,
+      "requests": 1321
+    },
+    {
+      "errors": 3,
+      "minute": 108,
+      "requests": 1324
+    },
+    {
+      "errors": 4,
+      "minute": 109,
+      "requests": 1327
+    },
+    {
+      "errors": 0,
+      "minute": 110,
+      "requests": 1330
+    },
+    {
+      "errors": 1,
+      "minute": 111,
+      "requests": 1333
+    },
+    {
+      "errors": 2,
+      "minute": 112,
+      "requests": 1336
+    },
+    {
+      "errors": 3,
+      "minute": 113,
+      "requests": 1339
+    },
+    {
+      "errors": 4,
+      "minute": 114,
+      "requests": 1342
+    },
+    {
+      "errors": 0,
+      "minute": 115,
+      "requests": 1345
+    },
+    {
+      "errors": 1,
+      "minute": 116,
+      "requests": 1348
+    },
+    {
+      "errors": 2,
+      "minute": 117,
+      "requests": 1351
+    },
+    {
+      "errors": 3,
+      "minute": 118,
+      "requests": 1354
+    },
+    {
+      "errors": 4,
+      "minute": 119,
+      "requests": 1357
+    }
+  ],
+  "logs": [
+    "INFO system boot",
+    "INFO sensor connected",
+    "WARN temperature spike detected",
+    "INFO retrying sensor read",
+    "ERROR transient network issue",
+    "INFO recovered successfully",
+    "INFO system boot",
+    "INFO sensor connected",
+    "WARN temperature spike detected",
+    "INFO retrying sensor read",
+    "ERROR transient network issue",
+    "INFO recovered successfully",
+    "INFO system boot",
+    "INFO sensor connected",
+    "WARN temperature spike detected",
+    "INFO retrying sensor read",
+    "ERROR transient network issue",
+    "INFO recovered successfully",
+    "INFO system boot",
+    "INFO sensor connected",
+    "WARN temperature spike detected",
+    "INFO retrying sensor read",
+    "ERROR transient network issue",
+    "INFO recovered successfully",
+    "INFO system boot",
+    "INFO sensor connected",
+    "WARN temperature spike detected",
+    "INFO retrying sensor read",
+    "ERROR transient network issue",
+    "INFO recovered successfully",
+    "INFO system boot",
+    "INFO sensor connected",
+    "WARN temperature spike detected",
+    "INFO retrying sensor read",
+    "ERROR transient network issue",
+    "INFO recovered successfully",
+    "INFO system boot",
+    "INFO sensor connected",
+    "WARN temperature spike detected",
+    "INFO retrying sensor read",
+    "ERROR transient network issue",
+    "INFO recovered successfully",
+    "INFO system boot",
+    "INFO sensor connected",
+    "WARN temperature spike detected",
+    "INFO retrying sensor read",
+    "ERROR transient network issue",
+    "INFO recovered successfully",
+    "INFO system boot",
+    "INFO sensor connected",
+    "WARN temperature spike detected",
+    "INFO retrying sensor read",
+    "ERROR transient network issue",
+    "INFO recovered successfully",
+    "INFO system boot",
+    "INFO sensor connected",
+    "WARN temperature spike detected",
+    "INFO retrying sensor read",
+    "ERROR transient network issue",
+    "INFO recovered successfully",
+    "INFO system boot",
+    "INFO sensor connected",
+    "WARN temperature spike detected",
+    "INFO retrying sensor read",
+    "ERROR transient network issue",
+    "INFO recovered successfully",
+    "INFO system boot",
+    "INFO sensor connected",
+    "WARN temperature spike detected",
+    "INFO retrying sensor read",
+    "ERROR transient network issue",
+    "INFO recovered successfully",
+    "INFO system boot",
+    "INFO sensor connected",
+    "WARN temperature spike detected",
+    "INFO retrying sensor read",
+    "ERROR transient network issue",
+    "INFO recovered successfully",
+    "INFO system boot",
+    "INFO sensor connected",
+    "WARN temperature spike detected",
+    "INFO retrying sensor read",
+    "ERROR transient network issue",
+    "INFO recovered successfully",
+    "INFO system boot",
+    "INFO sensor connected",
+    "WARN temperature spike detected",
+    "INFO retrying sensor read",
+    "ERROR transient network issue",
+    "INFO recovered successfully",
+    "INFO system boot",
+    "INFO sensor connected",
+    "WARN temperature spike detected",
+    "INFO retrying sensor read",
+    "ERROR transient network issue",
+    "INFO recovered successfully",
+    "INFO system boot",
+    "INFO sensor connected",
+    "WARN temperature spike detected",
+    "INFO retrying sensor read",
+    "ERROR transient network issue",
+    "INFO recovered successfully",
+    "INFO system boot",
+    "INFO sensor connected",
+    "WARN temperature spike detected",
+    "INFO retrying sensor read",
+    "ERROR transient network issue",
+    "INFO recovered successfully",
+    "INFO system boot",
+    "INFO sensor connected",
+    "WARN temperature spike detected",
+    "INFO retrying sensor read",
+    "ERROR transient network issue",
+    "INFO recovered successfully",
+    "INFO system boot",
+    "INFO sensor connected",
+    "WARN temperature spike detected",
+    "INFO retrying sensor read",
+    "ERROR transient network issue",
+    "INFO recovered successfully"
+  ],
+  "summary": {
+    "total_readings": 120,
+    "total_transactions": 120,
+    "error_rate": 0.04,
+    "dominant_payment_method": "UPI"
+  }
+}

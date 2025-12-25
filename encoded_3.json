@@ -1,0 +1,13 @@
+{
+  "service": "auth",
+  "logs": [
+    "INFO login success",
+    "WARN retry login",
+    "ERROR invalid token",
+    "INFO logout"
+  ],
+  "metrics": {
+    "meta": "META&ORDER=errors,minute,requests&tid=tbl_3&vmap=V1:1;V2:2",
+    "body": "BODY|table[3]{errors,minute,requests}|V2,V1,120|V1,V2,140|0,3,160"
+  }
+}

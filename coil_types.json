@@ -1,0 +1,24 @@
+{
+  "tbl_1": {
+    "humidity": "int",
+    "pressure": "int",
+    "temperature": "int",
+    "ts": "str"
+  },
+  "tbl_2": {
+    "amount": "int",
+    "city": "str",
+    "method": "str",
+    "status": "str",
+    "timestamp": "str",
+    "txn_id": "str"
+  },
+  "tbl_3": {
+    "errors": "int",
+    "minute": "int",
+    "requests": "int"
+  },
+  "tbl_4": {
+    "msg": "str"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "orders": {
+    "meta": "META&ORDER=item,order_id,price,qty&tid=tbl_4",
+    "body": "BODY|table[3]{item,order_id,price,qty}|Book,O1,399,2|Pen,O2,20,10|Notebook,O3,99,3"
+  },
+  "currency": "INR"
+}

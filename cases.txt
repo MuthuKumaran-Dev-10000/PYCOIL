@@ -1,0 +1,217 @@
+{
+  "device": "sensor-xyz",
+  "area": "Tamilnadu",
+  "data": {
+    "sensordata": [
+      {"temperature": "49", "Time": "3-8-2025", "place": "Madurai"},
+      {"temperature": "35", "Time": "5-9-2025", "place": "Chennai"},
+      {"temperature": "35", "Time": "2-3-2025", "place": "Madurai"},
+      {"temperature": "42", "Time": "11-1-2024", "place": "Coimbatore"},
+      {"temperature": "39", "Time": "14-2-2024", "place": "Trichy"}
+    ]
+  }
+}
+____________________
+{
+  "device": "sensor-xyz",
+  "area": "Tamilnadu",
+  "data": {
+    "sensordata": [
+      {"temperature": "51", "Time": "9-3-2024", "place": "Salem"},
+      {"temperature": "47", "Time": "28-4-2025", "place": "Erode"},
+      {"temperature": "33", "Time": "15-5-2025", "place": "Tirunelveli"},
+      {"temperature": "55", "Time": "7-6-2023", "place": "Madurai"},
+      {"temperature": "29", "Time": "21-7-2023", "place": "Chennai"}
+    ]
+  }
+}
+____________________
+{
+  "device": "sensor-abc",
+  "area": "Tamilnadu",
+  "data": {
+    "sensordata": [
+      {"temperature": "38", "Time": "10-8-2023", "place": "Coimbatore"},
+      {"temperature": "41", "Time": "3-9-2023", "place": "Trichy"},
+      {"temperature": "36", "Time": "19-10-2024", "place": "Salem"},
+      {"temperature": "44", "Time": "26-11-2026", "place": "Erode"}
+    ]
+  }
+}
+____________________
+{
+  "device": "sensor-abc",
+  "area": "Tamilnadu",
+  "data": {
+    "sensordata": [
+      {"temperature": "32", "Time": "5-12-2026", "place": "Tirunelveli"},
+      {"temperature": "28", "Time": "6-1-2024", "place": "Madurai"},
+      {"temperature": "53", "Time": "17-2-2025", "place": "Chennai"}
+    ]
+  }
+}
+____________________
+{
+  "device": "sensor-temp-01",
+  "area": "Tamilnadu",
+  "data": {
+    "sensordata": [
+      {"temperature": "37", "Time": "25-3-2025", "place": "Coimbatore"},
+      {"temperature": "54", "Time": "2-4-2025", "place": "Trichy"},
+      {"temperature": "46", "Time": "14-5-2023", "place": "Salem"},
+      {"temperature": "33", "Time": "18-6-2023", "place": "Erode"}
+    ]
+  }
+}
+____________________
+{
+  "device": "sensor-temp-02",
+  "area": "Tamilnadu",
+  "data": {
+    "sensordata": [
+      {"temperature": "45", "Time": "9-7-2023", "place": "Tirunelveli"},
+      {"temperature": "31", "Time": "27-8-2024", "place": "Madurai"},
+      {"temperature": "52", "Time": "15-9-2024", "place": "Chennai"}
+    ]
+  }
+}
+____________________
+{
+  "device": "sensor-temp-03",
+  "area": "Tamilnadu",
+  "data": {
+    "sensordata": [
+      {"temperature": "40", "Time": "30-10-2025", "place": "Coimbatore"},
+      {"temperature": "34", "Time": "4-11-2025", "place": "Trichy"},
+      {"temperature": "48", "Time": "12-12-2025", "place": "Salem"},
+      {"temperature": "50", "Time": "19-1-2026", "place": "Erode"}
+    ]
+  }
+}
+____________________
+{
+  "device": "sensor-temp-04",
+  "area": "Tamilnadu",
+  "data": {
+    "sensordata": [
+      {"temperature": "43", "Time": "23-2-2026", "place": "Tirunelveli"},
+      {"temperature": "29", "Time": "3-3-2023", "place": "Madurai"}
+    ]
+  }
+}
+____________________
+{
+  "device": "sensor-field-01",
+  "area": "South-India",
+  "data": {
+    "sensordata": [
+      {"temperature": "46", "Time": "11-4-2025", "place": "Madurai"},
+      {"temperature": "47", "Time": "12-4-2025", "place": "Madurai"},
+      {"temperature": "48", "Time": "13-4-2025", "place": "Madurai"}
+    ]
+  }
+}
+____________________
+{
+  "device": "sensor-field-02",
+  "area": "South-India",
+  "data": {
+    "sensordata": [
+      {"temperature": "30", "Time": "1-1-2024", "place": "Ooty"},
+      {"temperature": "32", "Time": "2-1-2024", "place": "Ooty"},
+      {"temperature": "31", "Time": "3-1-2024", "place": "Ooty"}
+    ]
+  }
+}
+____________________
+{
+  "device": "sensor-industrial-01",
+  "area": "Industrial-Zone",
+  "data": {
+    "sensordata": [
+      {"temperature": "58", "Time": "10-6-2025", "place": "Hosur"},
+      {"temperature": "60", "Time": "10-6-2025", "place": "Hosur"},
+      {"temperature": "62", "Time": "10-6-2025", "place": "Hosur"}
+    ]
+  }
+}
+____________________
+{
+  "device": "sensor-industrial-02",
+  "area": "Industrial-Zone",
+  "data": {
+    "sensordata": [
+      {"temperature": "55", "Time": "15-7-2025", "place": "Sriperumbudur"},
+      {"temperature": "57", "Time": "15-7-2025", "place": "Sriperumbudur"}
+    ]
+  }
+}
+____________________
+{
+  "device": "sensor-agri-01",
+  "area": "Rural-TN",
+  "data": {
+    "sensordata": [
+      {"temperature": "34", "Time": "1-6-2024", "place": "Theni"},
+      {"temperature": "36", "Time": "2-6-2024", "place": "Theni"},
+      {"temperature": "35", "Time": "3-6-2024", "place": "Theni"}
+    ]
+  }
+}
+____________________
+{
+  "device": "sensor-agri-02",
+  "area": "Rural-TN",
+  "data": {
+    "sensordata": [
+      {"temperature": "33", "Time": "10-10-2024", "place": "Dindigul"},
+      {"temperature": "34", "Time": "11-10-2024", "place": "Dindigul"}
+    ]
+  }
+}
+____________________
+{
+  "device": "sensor-urban-01",
+  "area": "Metro",
+  "data": {
+    "sensordata": [
+      {"temperature": "39", "Time": "5-5-2025", "place": "Chennai"},
+      {"temperature": "40", "Time": "6-5-2025", "place": "Chennai"},
+      {"temperature": "41", "Time": "7-5-2025", "place": "Chennai"}
+    ]
+  }
+}
+____________________
+{
+  "device": "sensor-urban-02",
+  "area": "Metro",
+  "data": {
+    "sensordata": [
+      {"temperature": "38", "Time": "20-6-2025", "place": "Bangalore"},
+      {"temperature": "39", "Time": "21-6-2025", "place": "Bangalore"}
+    ]
+  }
+}
+____________________
+{
+  "device": "sensor-coastal-01",
+  "area": "Coastal",
+  "data": {
+    "sensordata": [
+      {"temperature": "35", "Time": "1-8-2024", "place": "Nagapattinam"},
+      {"temperature": "36", "Time": "2-8-2024", "place": "Nagapattinam"},
+      {"temperature": "34", "Time": "3-8-2024", "place": "Nagapattinam"}
+    ]
+  }
+}
+____________________
+{
+  "device": "sensor-coastal-02",
+  "area": "Coastal",
+  "data": {
+    "sensordata": [
+      {"temperature": "37", "Time": "10-9-2024", "place": "Rameswaram"},
+      {"temperature": "38", "Time": "11-9-2024", "place": "Rameswaram"}
+    ]
+  }
+}

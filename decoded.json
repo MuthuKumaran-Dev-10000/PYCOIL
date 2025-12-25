@@ -1,158 +1,69 @@
 {
-  "device": "sensor-xyz",
-  "area": "Tamilnadu",
-  "data": {
-    "sensordata": [
-      {
-        "Time": "3-8-2025",
-        "place": "Madurai",
-        "temperature": "49"
-      },
-      {
-        "Time": "5-9-2025",
-        "place": "Chennai",
-        "temperature": "35"
-      },
-      {
-        "Time": "2-3-2025",
-        "place": "Madurai",
-        "temperature": "35"
-      },
-      {
-        "Time": "11-1-2024",
-        "place": "Coimbatore",
-        "temperature": "42"
-      },
-      {
-        "Time": "14-2-2024",
-        "place": "Trichy",
-        "temperature": "39"
-      },
-      {
-        "Time": "9-3-2024",
-        "place": "Salem",
-        "temperature": "51"
-      },
-      {
-        "Time": "28-4-2025",
-        "place": "Erode",
-        "temperature": "47"
-      },
-      {
-        "Time": "15-5-2025",
-        "place": "Tirunelveli",
-        "temperature": "33"
-      },
-      {
-        "Time": "7-6-2023",
-        "place": "Madurai",
-        "temperature": "55"
-      },
-      {
-        "Time": "21-7-2023",
-        "place": "Chennai",
-        "temperature": "29"
-      },
-      {
-        "Time": "10-8-2023",
-        "place": "Coimbatore",
-        "temperature": "38"
-      },
-      {
-        "Time": "3-9-2023",
-        "place": "Trichy",
-        "temperature": "41"
-      },
-      {
-        "Time": "19-10-2024",
-        "place": "Salem",
-        "temperature": "36"
-      },
-      {
-        "Time": "26-11-2026",
-        "place": "Erode",
-        "temperature": "44"
-      },
-      {
-        "Time": "5-12-2026",
-        "place": "Tirunelveli",
-        "temperature": "32"
-      },
-      {
-        "Time": "6-1-2024",
-        "place": "Madurai",
-        "temperature": "28"
-      },
-      {
-        "Time": "17-2-2025",
-        "place": "Chennai",
-        "temperature": "53"
-      },
-      {
-        "Time": "25-3-2025",
-        "place": "Coimbatore",
-        "temperature": "37"
-      },
-      {
-        "Time": "2-4-2025",
-        "place": "Trichy",
-        "temperature": "54"
-      },
-      {
-        "Time": "14-5-2023",
-        "place": "Salem",
-        "temperature": "46"
-      },
-      {
-        "Time": "18-6-2023",
-        "place": "Erode",
-        "temperature": "33"
-      },
-      {
-        "Time": "9-7-2023",
-        "place": "Tirunelveli",
-        "temperature": "45"
-      },
-      {
-        "Time": "27-8-2024",
-        "place": "Madurai",
-        "temperature": "31"
-      },
-      {
-        "Time": "15-9-2024",
-        "place": "Chennai",
-        "temperature": "52"
-      },
-      {
-        "Time": "30-10-2025",
-        "place": "Coimbatore",
-        "temperature": "40"
-      },
-      {
-        "Time": "4-11-2025",
-        "place": "Trichy",
-        "temperature": "34"
-      },
-      {
-        "Time": "12-12-2025",
-        "place": "Salem",
-        "temperature": "48"
-      },
-      {
-        "Time": "19-1-2026",
-        "place": "Erode",
-        "temperature": "50"
-      },
-      {
-        "Time": "23-2-2026",
-        "place": "Tirunelveli",
-        "temperature": "43"
-      },
-      {
-        "Time": "3-3-2023",
-        "place": "Madurai",
-        "temperature": "29"
-      }
-    ]
+  "system": {
+    "service": "payment-gateway",
+    "region": "ap-south-1",
+    "version": "v2.3.1"
+  },
+  "session": {
+    "session_id": "sess-98231",
+    "user_id": "user-1442",
+    "start_time": "2025-03-21T10:15:00Z"
+  },
+  "transactions": [
+    {
+      "amount": 499,
+      "city": "Chennai",
+      "method": "UPI",
+      "status": "SUCCESS",
+      "timestamp": "2025-03-21T10:16:02Z",
+      "txn_id": "TXN1001"
+    },
+    {
+      "amount": 1299,
+      "city": "Chennai",
+      "method": "CARD",
+      "status": "FAILED",
+      "timestamp": "2025-03-21T10:17:45Z",
+      "txn_id": "TXN1002"
+    },
+    {
+      "amount": 249,
+      "city": "Bangalore",
+      "method": "UPI",
+      "status": "SUCCESS",
+      "timestamp": "2025-03-21T10:18:10Z",
+      "txn_id": "TXN1003"
+    },
+    {
+      "amount": 499,
+      "city": "Chennai",
+      "method": "UPI",
+      "status": "SUCCESS",
+      "timestamp": "2025-03-21T10:19:55Z",
+      "txn_id": "TXN1004"
+    },
+    {
+      "amount": 999,
+      "city": "Bangalore",
+      "method": "CARD",
+      "status": "FAILED",
+      "timestamp": "2025-03-21T10:21:33Z",
+      "txn_id": "TXN1005"
+    }
+  ],
+  "logs": [
+    "INFO: session started",
+    "INFO: user authenticated",
+    "WARN: retrying payment",
+    "ERROR: card declined",
+    "INFO: fallback to UPI",
+    "INFO: payment completed"
+  ],
+  "summary": {
+    "total_txns": 5,
+    "success_count": 3,
+    "failed_count": 2,
+    "dominant_method": "UPI",
+    "dominant_city": "Chennai"
   }
 }

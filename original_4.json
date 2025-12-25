@@ -1,0 +1,23 @@
+{
+  "orders": [
+    {
+      "order_id": "O1",
+      "item": "Book",
+      "qty": 2,
+      "price": 399
+    },
+    {
+      "order_id": "O2",
+      "item": "Pen",
+      "qty": 10,
+      "price": 20
+    },
+    {
+      "order_id": "O3",
+      "item": "Notebook",
+      "qty": 3,
+      "price": 99
+    }
+  ],
+  "currency": "INR"
+}

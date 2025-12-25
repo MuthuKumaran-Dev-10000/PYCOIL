@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "user": "alice",
+      "action": "login",
+      "success": true
+    },
+    {
+      "user": "bob",
+      "action": "login",
+      "success": false
+    },
+    {
+      "user": "alice",
+      "action": "logout",
+      "success": true
+    },
+    {
+      "user": "bob",
+      "action": "retry",
+      "success": false
+    }
+  ],
+  "date": "2025-06-01"
+}
