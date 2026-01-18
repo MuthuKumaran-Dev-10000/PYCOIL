@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COIL v9.0 Titan | Professional Logic Simulation Engine</title>
+    <title>COIL v10 |Protocol Engine</title>
     
-    <!-- Enterprise Dependencies -->
+    <!-- Heavy Industry Dependencies -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.2/ace.js"></script>
@@ -34,15 +34,15 @@
             height: 100vh; 
             background: var(--bg-deep); 
             color: #f8fafc; 
-            user-select: none;
         }
 
-        /* --- MASTER LAYOUT --- */
+        /* --- LAYOUT SHELL --- */
         .app-shell { 
             display: grid; 
             grid-template-columns: 320px 1fr; 
             grid-template-rows: 64px 1fr auto; 
             height: 100vh; 
+            width: 100vw;
         }
 
         .header { 
@@ -66,7 +66,7 @@
             z-index: 900; 
         }
 
-        /* --- WORLD SPACE CANVAS --- */
+        /* --- FREESTYLE VIEWPORT ENGINE --- */
         .workspace { 
             grid-column: 2;
             grid-row: 2;
@@ -78,23 +78,25 @@
         #viewport { 
             width: 100%; 
             height: 100%; 
-            position: relative;
-            cursor: crosshair;
+            position: absolute;
+            inset: 0;
             overflow: hidden;
+            cursor: crosshair;
         }
 
         #world { 
             position: absolute; 
             top: 0; left: 0; 
             width: 100%; height: 100%; 
-            transform-origin: 0 0;
+            transform-origin: 0 0; /* Crucial for Zoom-at-Cursor Math */
             will-change: transform;
         }
 
         .grid-bg { 
             position: absolute; 
             inset: -50000px; 
-            background-image: radial-gradient(circle, #1e293b 1.5px, transparent 1.5px);
+            background-image: 
+                radial-gradient(circle, #1e293b 1px, transparent 1px);
             background-size: 60px 60px; 
             z-index: -1; 
         }
@@ -104,44 +106,45 @@
             position: absolute; 
             width: var(--node-width);
             background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(20px); 
+            backdrop-filter: blur(15px); 
             border: 1px solid var(--border);
             border-radius: 28px; 
             box-shadow: 0 20px 50px -10px rgba(0,0,0,0.6);
             z-index: 10; 
             pointer-events: auto;
         }
-        .node.selected { border: 2px solid var(--danger); box-shadow: 0 0 35px rgba(239, 68, 68, 0.4); }
+        .node.selected { border: 2.5px solid var(--danger); box-shadow: 0 0 35px rgba(239, 68, 68, 0.4); }
 
         .port {
             width: 22px; height: 22px; background: #1e293b;
             border: 5px solid var(--bg-deep); border-radius: 50%;
             position: absolute; cursor: crosshair; z-index: 100;
+            transition: transform 0.2s, background 0.2s;
         }
         .port:hover { background: var(--accent); transform: scale(1.3); }
         .port-in { left: -11px; top: 50%; transform: translateY(-50%); }
         .port-out { right: -11px; top: 50%; transform: translateY(-50%); }
 
         /* --- METRICS OVERLAYS --- */
-        .metrics-stack {
-            position: absolute; top: -140px; left: 0; width: 100%;
-            display: grid; grid-template-columns: 1fr 1fr; gap: 8px; pointer-events: none;
+        .metrics-grid {
+            position: absolute; top: -150px; left: 0; width: 100%;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 10px; pointer-events: none;
         }
         .m-card {
             background: rgba(7, 11, 20, 0.98); border: 1px solid var(--border);
-            padding: 14px; border-radius: 16px; font-family: 'Fira Code', monospace;
+            padding: 14px; border-radius: 18px; font-family: 'Fira Code', monospace;
         }
         .m-card.active { border-color: var(--coil-green); background: rgba(16, 185, 129, 0.1); }
-        .m-head { font-size: 8px; font-weight: 800; color: #64748b; text-transform: uppercase; margin-bottom: 5px; display: block; border-bottom: 1px solid #1e293b; padding-bottom: 3px;}
+        .m-head { font-size: 8px; font-weight: 900; color: #64748b; text-transform: uppercase; margin-bottom: 5px; display: block; border-bottom: 1px solid #1e293b; padding-bottom: 3px;}
         .m-row { display: flex; justify-content: space-between; font-size: 10px; margin-top: 3px; }
         .m-lbl { color: #4b5563; }
         .m-val { font-weight: 700; color: #fff; }
 
-        /* --- WIRES --- */
-        .wire { fill: none; stroke: #334155; stroke-width: 4; stroke-linecap: round; pointer-events: auto; cursor: pointer; }
+        /* --- WIRE UI --- */
+        .wire { fill: none; stroke: #334155; stroke-width: 4.5; stroke-linecap: round; pointer-events: auto; cursor: pointer; transition: stroke 0.2s; }
         .wire.selected { stroke: var(--danger) !important; filter: drop-shadow(0 0 10px var(--danger)); }
-        .wire.flow-active { stroke: var(--coil-green); stroke-dasharray: 10; animation: dash 1s linear infinite; }
-        @keyframes dash { to { stroke-dashoffset: -20; } }
+        .wire.flow-active { stroke: var(--coil-green); stroke-dasharray: 12; animation: dash 1s linear infinite; }
+        @keyframes dash { to { stroke-dashoffset: -24; } }
 
         .cable-hud {
             position: absolute; transform: translate(-50%, -50%);
@@ -154,36 +157,31 @@
 
         /* --- BOTTOM MONITOR --- */
         #monitor { 
-            grid-column: 2; height: 320px; background: #000; 
+            grid-column: 2; height: 350px; background: #000; 
             border-top: 1px solid var(--border); display: flex; flex-direction: column; 
         }
-        .mon-header { height: 48px; background: #070b14; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; }
+        .mon-header { height: 52px; background: #070b14; display: flex; align-items: center; justify-content: space-between; padding: 0 25px; border-bottom: 1px solid #1e293b; }
         .mon-body { flex: 1; display: flex; overflow: hidden; }
         .mon-col { flex: 1; border-right: 1px solid #1e293b; display: flex; flex-direction: column; }
-        .mon-scroll { flex: 1; overflow-y: auto; padding: 20px; font-family: 'Fira Code', monospace; font-size: 11px; line-height: 1.6; }
+        .mon-scroll { flex: 1; overflow-y: auto; padding: 25px; font-family: 'Fira Code', monospace; font-size: 11px; line-height: 1.7; }
 
         /* --- PROPERTIES DRAWER --- */
         .drawer {
-            position: fixed; right: 0; top: 0; bottom: 0; width: 550px;
+            position: fixed; right: 0; top: 0; bottom: 0; width: 580px;
             background: #070b14; border-left: 1px solid var(--border); z-index: 2000;
-            display: none; flex-direction: column; box-shadow: -30px 0 80px rgba(0,0,0,0.9);
+            display: none; flex-direction: column; box-shadow: -40px 0 100px rgba(0,0,0,1);
         }
 
         .coil-token { color: var(--coil-green); font-weight: bold; }
         .coil-delim { color: #f43f5e; font-weight: bold; }
 
-        #zoom-hud {
+        #viewport-stats {
             position: absolute; bottom: 20px; right: 20px;
-            background: rgba(15, 23, 42, 0.9); padding: 8px 16px;
-            border-radius: 10px; font-family: 'Fira Code'; font-size: 12px;
+            background: rgba(15, 23, 42, 0.85); padding: 10px 20px;
+            border-radius: 12px; font-family: 'Fira Code'; font-size: 11px;
             color: var(--accent); pointer-events: none; border: 1px solid var(--border); font-weight: bold;
+            display: flex; gap: 20px;
         }
-
-        .input-group { margin-bottom: 20px; }
-        .input-group label { display: block; font-size: 10px; font-weight: 900; color: #64748b; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 1px; }
-        .input-field { width: 100%; background: #1e293b; border: 1px solid #334155; padding: 12px; border-radius: 12px; color: #fff; font-weight: 600; }
-        
-        .ace-editor-container { height: 300px; border-radius: 16px; overflow: hidden; border: 1px solid #334155; }
     </style>
 </head>
 <body>
@@ -192,25 +190,29 @@
         
         <!-- HEADER -->
         <header class="header">
-            <div class="flex items-center gap-5">
-                <div class="w-11 h-11 bg-indigo-600 rounded-2xl flex items-center justify-center shadow-xl shadow-indigo-500/20">
-                    <i data-lucide="cpu" class="text-white"></i>
+            <div class="flex items-center gap-6">
+                <div class="w-12 h-12 bg-indigo-600 rounded-2xl flex items-center justify-center shadow-2xl shadow-indigo-500/30">
+                    <i data-lucide="zap" class="text-white"></i>
                 </div>
                 <div>
-                    <h1 class="text-xl font-black tracking-tight uppercase italic">COIL Titan <span class="text-indigo-500 ml-2 font-normal text-sm normal-case italic">v9.0 Engine</span></h1>
-                    <div class="flex items-center gap-3">
-                        <span class="w-2 h-2 rounded-full bg-slate-500" id="sim-indicator"></span>
-                        <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest" id="sim-text">Cluster Standby</p>
+                    <h1 class="text-xl font-black tracking-tighter uppercase italic">COIL <span class="text-indigo-500 ml-2 font-normal text-sm normal-case italic">v10.0  </span></h1>
+                    <div class="flex items-center gap-4">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-slate-500" id="sim-indicator"></span>
+                            <p class="text-[10px] font-black text-slate-500 uppercase tracking-widest" id="sim-text">  Standby</p>
+                        </div>
+                        <div class="h-3 w-px bg-slate-800"></div>
+                        <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Active Objects: <span id="obj-count" class="text-indigo-400">0</span></p>
                     </div>
                 </div>
             </div>
 
             <div class="flex items-center gap-4">
-                <button onclick="SimEngine.start()" class="bg-emerald-600 hover:bg-emerald-500 text-white px-8 py-2.5 rounded-full font-black text-sm flex items-center gap-2 transition-all shadow-lg shadow-emerald-500/20">
-                    <i data-lucide="play" class="w-4 h-4"></i> START SIMULATION
+                <button onclick="Sim.start()" class="bg-emerald-600 hover:bg-emerald-500 text-white px-8 py-3 rounded-full font-black text-sm flex items-center gap-3 transition-all shadow-xl shadow-emerald-500/10">
+                    <i data-lucide="play" class="w-5 h-5"></i> DEPLOY CLUSTER
                 </button>
-                <button onclick="SimEngine.stop()" class="bg-slate-800 hover:bg-red-600 text-white px-8 py-2.5 rounded-full font-black text-sm flex items-center gap-2 transition-all">
-                    <i data-lucide="square" class="w-4 h-4"></i> HALT
+                <button onclick="Sim.stop()" class="bg-slate-800 hover:bg-red-600 text-white px-8 py-3 rounded-full font-black text-sm flex items-center gap-3 transition-all">
+                    <i data-lucide="square" class="w-5 h-5"></i> TERMINATE
                 </button>
             </div>
         </header>
@@ -218,36 +220,36 @@
         <!-- SIDEBAR -->
         <aside class="sidebar space-y-12">
             <div>
-                <h3 class="text-[11px] font-black text-slate-500 uppercase tracking-[0.2em] mb-6">Data Source</h3>
-                <div draggable="true" ondragstart="UI.onDragStart(event, 'sensor')" class="p-5 bg-slate-800/30 border border-slate-700/50 rounded-[32px] cursor-grab hover:border-orange-500 transition-all group">
-                    <div class="flex items-center gap-5">
-                        <div class="p-4 bg-orange-500/10 text-orange-500 rounded-2xl group-hover:scale-110 transition-transform"><i data-lucide="radio" class="w-7 h-7"></i></div>
+                <h3 class="text-[11px] font-black text-slate-500 uppercase tracking-[0.3em] mb-6">Source Fabric</h3>
+                <div draggable="true" ondragstart="Viewport.onDragStart(event, 'sensor')" class="p-6 bg-slate-800/20 border border-slate-700/50 rounded-[32px] cursor-grab hover:border-orange-500 transition-all group">
+                    <div class="flex items-center gap-6">
+                        <div class="p-4 bg-orange-500/10 text-orange-500 rounded-3xl group-hover:scale-110 transition-transform shadow-lg shadow-orange-500/10"><i data-lucide="database" class="w-8 h-8"></i></div>
                         <div>
                             <span class="block text-sm font-black uppercase">IoT Sensor</span>
-                            <span class="text-[9px] text-slate-500 uppercase font-black">Storage & I/O Stats</span>
+                            <span class="text-[9px] text-slate-500 uppercase font-black tracking-widest">Disk I/O Origin</span>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div>
-                <h3 class="text-[11px] font-black text-slate-500 uppercase tracking-[0.2em] mb-6">Execution Layer</h3>
+                <h3 class="text-[11px] font-black text-slate-500 uppercase tracking-[0.3em] mb-6">Logic Fabric</h3>
                 <div class="space-y-4">
-                    <div draggable="true" ondragstart="UI.onDragStart(event, 'server')" class="p-5 bg-slate-800/30 border border-slate-700/50 rounded-[32px] cursor-grab hover:border-blue-500 transition-all group">
-                        <div class="flex items-center gap-5">
-                            <div class="p-4 bg-blue-500/10 text-blue-500 rounded-2xl group-hover:scale-110 transition-transform"><i data-lucide="server" class="w-7 h-7"></i></div>
+                    <div draggable="true" ondragstart="Viewport.onDragStart(event, 'server')" class="p-6 bg-slate-800/20 border border-slate-700/50 rounded-[32px] cursor-grab hover:border-blue-500 transition-all group">
+                        <div class="flex items-center gap-6">
+                            <div class="p-4 bg-blue-500/10 text-blue-500 rounded-3xl group-hover:scale-110 transition-transform shadow-lg shadow-blue-500/10"><i data-lucide="server" class="w-8 h-8"></i></div>
                             <div>
-                                <span class="block text-sm font-black uppercase">Logic Hub</span>
-                                <span class="text-[9px] text-slate-500 uppercase font-black">RAM & Compute ops</span>
+                                <span class="block text-sm font-black uppercase">Edge Gateway</span>
+                                <span class="text-[9px] text-slate-500 uppercase font-black tracking-widest">RAM & Ops Filter</span>
                             </div>
                         </div>
                     </div>
-                    <div draggable="true" ondragstart="UI.onDragStart(event, 'ai')" class="p-5 bg-slate-800/30 border border-slate-700/50 rounded-[32px] cursor-grab hover:border-pink-500 transition-all group">
-                        <div class="flex items-center gap-5">
-                            <div class="p-4 bg-pink-500/10 text-pink-500 rounded-2xl group-hover:scale-110 transition-transform"><i data-lucide="brain-circuit" class="w-7 h-7"></i></div>
+                    <div draggable="true" ondragstart="Viewport.onDragStart(event, 'ai')" class="p-6 bg-slate-800/20 border border-slate-700/50 rounded-[32px] cursor-grab hover:border-pink-500 transition-all group">
+                        <div class="flex items-center gap-6">
+                            <div class="p-4 bg-pink-500/10 text-pink-500 rounded-3xl group-hover:scale-110 transition-transform shadow-lg shadow-pink-500/10"><i data-lucide="brain-circuit" class="w-8 h-8"></i></div>
                             <div>
                                 <span class="block text-sm font-black uppercase">AI Inference</span>
-                                <span class="text-[9px] text-slate-500 uppercase font-black">LLM Token Analysis</span>
+                                <span class="text-[9px] text-slate-500 uppercase font-black tracking-widest">Token Reduction</span>
                             </div>
                         </div>
                     </div>
@@ -255,23 +257,23 @@
             </div>
 
             <div class="pt-10 border-t border-slate-800/60">
-                <div class="p-6 bg-indigo-600/5 rounded-[40px] border border-indigo-500/10">
-                    <h4 class="text-[10px] font-black text-indigo-400 mb-4 uppercase tracking-widest">Protocol Gain</h4>
+                <div class="p-8 bg-indigo-600/5 rounded-[40px] border border-indigo-500/10">
+                    <h4 class="text-[11px] font-black text-indigo-400 mb-4 uppercase tracking-widest">Aggregate Gain</h4>
                     <div class="flex justify-between items-end mb-2">
-                        <span class="text-[10px] text-slate-500 font-black uppercase">Total Savings</span>
-                        <span id="savings-val" class="text-3xl font-black text-emerald-500">0%</span>
+                        <span class="text-[10px] text-slate-500 font-black uppercase">Efficiency</span>
+                        <span id="savings-val" class="text-4xl font-black text-emerald-500">0%</span>
                     </div>
-                    <div class="h-2 bg-slate-800 rounded-full overflow-hidden">
+                    <div class="h-2.5 bg-slate-800 rounded-full overflow-hidden">
                         <div id="savings-bar" class="h-full bg-emerald-500 w-0 transition-all duration-1000"></div>
                     </div>
-                    <p class="text-[10px] text-slate-600 mt-6 leading-relaxed font-bold italic">Roam: Right-Click Drag<br>Delete: [DEL] key only</p>
+                    <p class="text-[10px] text-slate-500 mt-6 leading-relaxed font-bold italic">Roam: Right-Click / Middle-Click<br>Delete Node/Wire: [DEL] key</p>
                 </div>
             </div>
         </aside>
 
         <!-- WORKSPACE -->
         <main class="workspace">
-            <div id="viewport" ondragover="event.preventDefault()" ondrop="UI.onDrop(event)">
+            <div id="viewport" ondragover="event.preventDefault()" ondrop="Viewport.onDrop(event)">
                 <div id="world">
                     <div class="grid-bg"></div>
                     <svg id="wire-layer" class="absolute inset-0 pointer-events-none" style="min-width: 20000px; min-height: 20000px;">
@@ -279,31 +281,34 @@
                         <path id="temp-wire" class="wire stroke-indigo-500/40" d="" style="display:none"></path>
                     </svg>
                     <div id="node-layer" class="absolute inset-0 pointer-events-none"></div>
-                    <div id="badge-layer" class="absolute inset-0 pointer-events-none"></div>
+                    <div id="hud-layer" class="absolute inset-0 pointer-events-none"></div>
                 </div>
             </div>
-            <div id="zoom-hud">ZOOM: 100%</div>
+            <div id="viewport-stats">
+                <span>ZOOM: <span id="zoom-val">100%</span></span>
+                <span>PAN: <span id="pan-val">0, 0</span></span>
+            </div>
         </main>
 
         <!-- MONITOR -->
         <section id="monitor">
             <div class="mon-header">
-                <div class="flex items-center gap-8">
-                    <span class="text-[11px] font-black uppercase tracking-widest text-slate-400">Network Packet Inspector</span>
-                    <div class="flex gap-6">
-                        <span id="mon-json-sz" class="text-[11px] font-mono text-orange-500 font-black">JSON: 0.00 KB</span>
-                        <span id="mon-coil-sz" class="text-[11px] font-mono text-emerald-500 font-black">COIL: 0.00 KB</span>
+                <div class="flex items-center gap-10">
+                    <span class="text-[11px] font-black uppercase tracking-widest text-slate-400">Distributed Packet Inspector</span>
+                    <div class="flex gap-8">
+                        <span id="mon-json-sz" class="text-[11px] font-mono text-orange-500 font-black bg-orange-500/10 px-3 py-1 rounded-lg">JSON: 0.00 KB</span>
+                        <span id="mon-coil-sz" class="text-[11px] font-mono text-emerald-500 font-black bg-emerald-500/10 px-3 py-1 rounded-lg">COIL: 0.00 KB</span>
                     </div>
                 </div>
-                <button onclick="UI.toggleMonitor()" class="text-slate-500 hover:text-white transition-all"><i data-lucide="chevron-down" id="mon-toggle-icon"></i></button>
+                <button onclick="Viewport.toggleMonitor()" class="text-slate-500 hover:text-white transition-all"><i data-lucide="chevron-down" id="mon-toggle-icon"></i></button>
             </div>
             <div class="mon-body">
                 <div class="mon-col">
-                    <div class="px-6 py-2.5 bg-slate-900 border-b border-slate-800 text-[10px] font-black text-slate-500 uppercase tracking-widest">RFC 8259 Standard</div>
+                    <div class="px-8 py-3 bg-slate-900 border-b border-slate-800 text-[10px] font-black text-slate-500 uppercase tracking-widest">RFC-Compliant JSON Stream</div>
                     <div id="log-json" class="mon-scroll text-orange-400/60"></div>
                 </div>
                 <div class="mon-col">
-                    <div class="px-6 py-2.5 bg-slate-900 border-b border-slate-800 text-[10px] font-black text-slate-500 uppercase tracking-widest">COIL Optimized Payload</div>
+                    <div class="px-8 py-3 bg-slate-900 border-b border-slate-800 text-[10px] font-black text-slate-500 uppercase tracking-widest">COIL Encoded Stream (Zenith)</div>
                     <div id="log-coil" class="mon-scroll"></div>
                 </div>
             </div>
@@ -313,24 +318,24 @@
 
     <!-- PROPERTY DRAWER -->
     <div id="prop-drawer" class="drawer">
-        <div class="p-10 border-b border-slate-800 flex justify-between items-center bg-slate-900/30">
+        <div class="p-12 border-b border-slate-800 flex justify-between items-center bg-slate-900/30">
             <div>
-                <h2 class="font-black text-2xl uppercase tracking-tighter">Hardware Registry</h2>
-                <p class="text-[11px] text-slate-500 uppercase font-black tracking-widest">Logic & Resource Parameters</p>
+                <h2 class="font-black text-3xl uppercase tracking-tighter italic text-indigo-500">Node Logic</h2>
+                <p class="text-[11px] text-slate-500 uppercase font-black tracking-widest mt-1">Simulated Hardware Registry</p>
             </div>
-            <button onclick="UI.closeProps()" class="p-4 hover:bg-slate-800 rounded-2xl transition-all"><i data-lucide="x" class="w-6 h-6"></i></button>
+            <button onclick="Viewport.closeProps()" class="p-4 hover:bg-slate-800 rounded-3xl transition-all"><i data-lucide="x" class="w-8 h-8"></i></button>
         </div>
-        <div id="prop-content" class="flex-1 overflow-y-auto p-10 space-y-8"></div>
-        <div class="p-10 border-t border-slate-800 bg-slate-950">
-            <button onclick="UI.saveProps()" class="w-full py-5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-2xl font-black text-sm uppercase tracking-widest shadow-2xl shadow-indigo-600/30">
-                Update Simulation Profile
+        <div id="prop-content" class="flex-1 overflow-y-auto p-12 space-y-10"></div>
+        <div class="p-12 border-t border-slate-800 bg-slate-950">
+            <button onclick="Viewport.saveProps()" class="w-full py-6 bg-indigo-600 hover:bg-indigo-500 text-white rounded-3xl font-black text-base uppercase tracking-widest shadow-2xl shadow-indigo-600/30">
+                Update Profile
             </button>
         </div>
     </div>
 
     <script>
         /**
-         * COIL TITAN ENCODING CORE
+         * COIL   ENGINE
          */
         const COIL = {
             REC: ",", PAIR: "|",
@@ -343,7 +348,7 @@
                     if (v.length > 2) freqs[v] = (freqs[v] || 0) + 1;
                 }));
                 const vmap = {}; let count = 1;
-                Object.entries(freqs).filter(([v, f]) => f > 1).sort((a,b) => b[1] - a[1]).slice(0, 45).forEach(([v]) => vmap[v] = `V${count++}`);
+                Object.entries(freqs).filter(([v, f]) => f > 1).sort((a,b) => b[1] - a[1]).slice(0, 50).forEach(([v]) => vmap[v] = `V${count++}`);
                 const rows = payload.map(row => keys.map(k => vmap[String(row[k] ?? "")] || String(row[k] ?? "")).join(this.PAIR));
                 const meta = `META&K=${keys.join(";")}&V=${Object.entries(vmap).map(([v,t])=>`${t}:${v}`).join(",")}`;
                 const body = `BODY${this.REC}B[${payload.length}]${this.REC}${rows.join(this.REC)}`;
@@ -355,52 +360,54 @@
             }
         };
 
-        const MODELS = {
-            'gpt4': { name: 'GPT-4 (o1-preview)', ratio: 3.7 },
-            'claude': { name: 'Claude-3.5 (Sonnet)', ratio: 3.4 },
-            'llama': { name: 'Llama-3 (Meta)', ratio: 4.0 }
+        const HW_PROFILES = {
+            'gpt4': { name: 'GPT-4 (cl100k)', ratio: 3.8 },
+            'claude': { name: 'Claude-3.5 (Sonnet)', ratio: 3.5 },
+            'llama': { name: 'Llama-3 (Meta)', ratio: 4.1 }
         };
 
         /**
          * SIMULATION ENGINE
          */
-        const SimEngine = {
+        const Sim = {
             nodes: [], wires: [], isRunning: false, tickId: null,
-            camera: { x: 0, y: 0, zoom: 1 },
             selectedId: null,
 
             start() {
                 this.isRunning = true;
-                this.updateUI(true);
-                this.tickId = setInterval(() => this.tick(), 3000);
+                this.setIndicator(true);
+                this.tickId = setInterval(() => this.tick(), 2500);
             },
 
             stop() {
                 this.isRunning = false;
-                this.updateUI(false);
+                this.setIndicator(false);
                 clearInterval(this.tickId);
-                UI.clearOverlays();
-                UI.drawWires();
+                Viewport.clearMetrics();
+                Viewport.drawWires();
             },
 
             tick() {
-                // Clear buffers
+                // Collector Buffer Reset
                 this.nodes.forEach(n => n.buffer = []);
-                // Start from sensors
+                
+                // Sensor Propagation
                 this.nodes.filter(n => n.type === 'sensor').forEach(n => {
-                    const data = this.generateData(n);
+                    const data = this.generateSensorData(n);
                     this.propagate(n.id, data);
                 });
+                
+                document.getElementById('obj-count').innerText = this.nodes.length + this.wires.length;
             },
 
-            generateData(node) {
+            generateSensorData(node) {
                 try {
                     const base = JSON.parse(node.config.payload || "[]");
                     const burst = [];
                     for(let i=0; i<(node.config.repeats || 5); i++) {
                         base.forEach(item => {
                             const row = {...item};
-                            Object.keys(row).forEach(k => { if(typeof row[k] === 'number') row[k] += (Math.random()*4 - 2); });
+                            Object.keys(row).forEach(k => { if(typeof row[k] === 'number') row[k] += (Math.random()*2 - 1); });
                             burst.push(row);
                         });
                     }
@@ -421,80 +428,103 @@
                 };
 
                 if(node.type === 'ai') {
-                    const r = MODELS[node.config.model || 'gpt4'].ratio;
+                    const r = HW_PROFILES[node.config.model || 'gpt4'].ratio;
                     stats.json.tokens = Math.ceil(jsonStr.length / r);
                     stats.coil.tokens = Math.ceil(coilRes.size / r);
                 } else {
-                    stats.json.ram = (jsonStr.length / 200).toFixed(1);
-                    stats.coil.ram = (coilRes.size / 200).toFixed(1);
-                    stats.ops = Math.ceil(data.length * 4.2);
+                    stats.json.ram = (jsonStr.length / 256).toFixed(1);
+                    stats.coil.ram = (coilRes.size / 256).toFixed(1);
+                    stats.ops = Math.ceil(data.length * 3.5);
                 }
 
-                UI.updateNodeHUD(nodeId, stats, node.type);
-                if(node.type === 'sensor') UI.updateMonitor(jsonStr, coilRes, stats);
+                Viewport.updateNodeMetrics(nodeId, stats, node.type);
+                if(node.type === 'sensor') Viewport.updateMonitor(jsonStr, coilRes, stats);
 
                 this.wires.filter(w => w.from === nodeId).forEach(w => {
-                    UI.animatePacket(w.id, stats);
+                    Viewport.animatePulse(w.id, stats);
                     const target = this.nodes.find(n => n.id === w.to);
                     if(!target) return;
                     
+                    // Collector Pattern
                     target.buffer = (target.buffer || []).concat(data);
                     setTimeout(() => {
-                        let procData = target.buffer;
+                        let processed = target.buffer;
                         if(target.type === 'server' && target.config.filter) {
-                            try { procData = new Function('data', target.config.filter)(procData); } catch(e) { console.error("Filter error", e); }
+                            try { processed = new Function('data', target.config.filter)(processed); } catch(e) {}
                         }
-                        this.propagate(target.id, procData);
-                    }, 600);
+                        this.propagate(target.id, processed);
+                    }, 400);
                 });
             },
 
-            updateUI(active) {
+            setIndicator(active) {
                 const dot = document.getElementById('sim-indicator');
                 const txt = document.getElementById('sim-text');
                 dot.className = `w-2.5 h-2.5 rounded-full ${active ? 'bg-emerald-500 animate-pulse' : 'bg-slate-500'}`;
-                txt.innerText = active ? 'Environment Processing' : 'Cluster Standby';
-                UI.drawWires();
+                txt.innerText = active ? 'ZENITH   Active' : '  Standby';
+                Viewport.drawWires();
             }
         };
 
         /**
-         * INTERFACE CONTROLLER
+         * VIEWPORT & UI ENGINE (FREESTYLE)
          */
-        const UI = {
-            isWiring: false, wireStart: null, ace: null,
-            isPanning: false, panStart: { x: 0, y: 0 },
+        const Viewport = {
+            cam: { x: 0, y: 0, zoom: 1 },
+            isPanning: false,
+            panStart: { x: 0, y: 0 },
+            isWiring: false,
+            wireStartId: null,
+            ace: null,
+            monitorOpen: true,
 
             init() {
                 lucide.createIcons();
-                this.bindCanvas();
-                this.bindGlobalKeys();
-                this.spawnNode('sensor', 150, 250);
-                this.spawnNode('ai', 850, 250);
+                this.bindEvents();
+                this.spawnNode('sensor', 100, 200);
+                this.spawnNode('ai', 1000, 200);
             },
 
-            bindCanvas() {
+            bindEvents() {
                 const vp = document.getElementById('viewport');
+
+                // --- ZOOM AT CURSOR MATH ---
                 vp.onwheel = (e) => {
                     e.preventDefault();
-                    const zoomDelta = e.deltaY > 0 ? -0.05 : 0.05;
-                    SimEngine.camera.zoom = Math.min(Math.max(SimEngine.camera.zoom + zoomDelta, 0.1), 2.5);
-                    this.applyWorldTransform();
+                    const rect = vp.getBoundingClientRect();
+                    const mouseX = e.clientX - rect.left;
+                    const mouseY = e.clientY - rect.top;
+
+                    // World Coordinates of mouse before zoom
+                    const worldX = (mouseX - this.cam.x) / this.cam.zoom;
+                    const worldY = (mouseY - this.cam.y) / this.cam.zoom;
+
+                    const zoomDelta = e.deltaY > 0 ? 0.9 : 1.1;
+                    const newZoom = Math.min(Math.max(this.cam.zoom * zoomDelta, 0.05), 3);
+                    
+                    this.cam.zoom = newZoom;
+                    
+                    // Adjust translate so world coordinates remain under mouse
+                    this.cam.x = mouseX - worldX * this.cam.zoom;
+                    this.cam.y = mouseY - worldY * this.cam.zoom;
+
+                    this.updateTransform();
                 };
 
+                // --- FREESTYLE PANNING ---
                 vp.onmousedown = (e) => {
                     if(e.button === 2 || e.button === 1) { 
                         this.isPanning = true;
-                        this.panStart = { x: e.clientX - SimEngine.camera.x, y: e.clientY - SimEngine.camera.y };
+                        this.panStart = { x: e.clientX - this.cam.x, y: e.clientY - this.cam.y };
                         vp.style.cursor = 'grabbing';
                     }
                 };
 
                 window.onmousemove = (e) => {
                     if(this.isPanning) {
-                        SimEngine.camera.x = e.clientX - this.panStart.x;
-                        SimEngine.camera.y = e.clientY - this.panStart.y;
-                        this.applyWorldTransform();
+                        this.cam.x = e.clientX - this.panStart.x;
+                        this.cam.y = e.clientY - this.panStart.y;
+                        this.updateTransform();
                     }
                     if(this.isWiring) this.drawWireGhost(e);
                 };
@@ -504,62 +534,59 @@
                     vp.style.cursor = 'crosshair';
                 };
 
-                vp.oncontextmenu = (e) => e.preventDefault();
-            },
-
-            applyWorldTransform() {
-                const world = document.getElementById('world');
-                world.style.transform = `translate(${SimEngine.camera.x}px, ${SimEngine.camera.y}px) scale(${SimEngine.camera.zoom})`;
-                document.getElementById('zoom-hud').innerText = `ZOOM: ${Math.round(SimEngine.camera.zoom * 100)}%`;
-            },
-
-            bindGlobalKeys() {
+                // --- GLOBAL DELETION (DELETE KEY ONLY) ---
                 window.onkeydown = (e) => {
-                    // BACKSPACE IS NOW FORBIDDEN FOR DELETION
-                    if(e.key === 'Delete' && SimEngine.selectedId) {
-                        // IF TYPING IN AN INPUT, DON'T DELETE THE NODE
+                    if(e.key === 'Delete' && Sim.selectedId) {
+                        // Prevent deletion when typing in inputs/Ace
                         if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName) || document.activeElement.closest('.ace_editor')) return;
 
-                        const sid = SimEngine.selectedId;
+                        const sid = Sim.selectedId;
                         if(sid.startsWith('n_')) {
-                            SimEngine.nodes = SimEngine.nodes.filter(n => n.id !== sid);
-                            SimEngine.wires = SimEngine.wires.filter(w => w.from !== sid && w.to !== sid);
+                            Sim.nodes = Sim.nodes.filter(n => n.id !== sid);
+                            Sim.wires = Sim.wires.filter(w => w.from !== sid && w.to !== sid);
                             document.getElementById(sid).remove();
                         } else {
-                            SimEngine.wires = SimEngine.wires.filter(w => w.id !== sid);
+                            Sim.wires = Sim.wires.filter(w => w.id !== sid);
                         }
-                        SimEngine.selectedId = null;
+                        Sim.selectedId = null;
                         this.drawWires();
                     }
                 };
+
+                vp.oncontextmenu = (e) => e.preventDefault();
             },
 
-            onDragStart(e, type) { 
-                e.dataTransfer.setData('nodeType', type); 
+            updateTransform() {
+                const world = document.getElementById('world');
+                world.style.transform = `translate(${this.cam.x}px, ${this.cam.y}px) scale(${this.cam.zoom})`;
+                document.getElementById('zoom-val').innerText = `${Math.round(this.cam.zoom * 100)}%`;
+                document.getElementById('pan-val').innerText = `${Math.round(this.cam.x)}, ${Math.round(this.cam.y)}`;
             },
 
+            onDragStart(e, type) { e.dataTransfer.setData('nodeType', type); },
+            
             onDrop(e) {
                 e.preventDefault();
                 const type = e.dataTransfer.getData('nodeType');
                 const rect = document.getElementById('viewport').getBoundingClientRect();
                 
-                // MATH: Drop location relative to world space with zoom/pan offsets
-                const worldX = (e.clientX - rect.left - SimEngine.camera.x) / SimEngine.camera.zoom - 170;
-                const worldY = (e.clientY - rect.top - SimEngine.camera.y) / SimEngine.camera.zoom - 60;
+                // MATH: Convert Screen Drop to World Space
+                const worldX = (e.clientX - rect.left - this.cam.x) / this.cam.zoom - 170;
+                const worldY = (e.clientY - rect.top - this.cam.y) / this.cam.zoom - 60;
                 
                 this.spawnNode(type, worldX, worldY);
             },
 
             spawnNode(type, x, y) {
-                const id = 'n_' + Date.now() + Math.floor(Math.random()*1000);
-                const node = { id, type, x, y, config: this.getDefaults(type), buffer: [] };
-                SimEngine.nodes.push(node);
+                const id = 'n_' + Date.now() + Math.floor(Math.random()*100);
+                const node = { id, type, x, y, config: this.getDefaultConfig(type), buffer: [] };
+                Sim.nodes.push(node);
                 this.renderNode(node);
             },
 
-            getDefaults(type) {
-                const base = { name: type.toUpperCase() + ' Node', model: 'gpt4' };
-                if(type === 'sensor') return { ...base, payload: '[{"id":1,"t":25,"val":99}]', repeats: 12 };
+            getDefaultConfig(type) {
+                const base = { name: type.toUpperCase() + '  ', model: 'gpt4' };
+                if(type === 'sensor') return { ...base, payload: '[{"id":1,"temp":24,"val":10}]', repeats: 10 };
                 if(type === 'server') return { ...base, filter: 'return data.filter(x => x.id > 0);' };
                 return base;
             },
@@ -571,14 +598,14 @@
                 div.style.left = node.x + 'px';
                 div.style.top = node.y + 'px';
 
-                const icon = {sensor:'radio', server:'server', ai:'brain-circuit'}[node.type];
+                const icon = {sensor:'database', server:'server', ai:'brain-circuit'}[node.type];
 
                 div.innerHTML = `
-                    <div class="metrics-stack" id="m-stack-${node.id}"></div>
-                    <div class="p-6 border-b border-slate-800 flex items-center justify-between bg-slate-900/30 rounded-t-[28px]">
+                    <div class="metrics-grid" id="met-${node.id}"></div>
+                    <div class="p-8 border-b border-slate-800 flex items-center justify-between bg-slate-900/40 rounded-t-[28px]">
                         <div class="flex items-center gap-4">
                             <i data-lucide="${icon}" class="w-5 h-5 text-indigo-400"></i>
-                            <span class="text-[11px] font-black uppercase text-slate-200 tracking-widest">${node.config.name}</span>
+                            <span class="text-[12px] font-black uppercase text-slate-200 tracking-wider">${node.config.name}</span>
                         </div>
                     </div>
                     <div class="p-6">
@@ -587,18 +614,18 @@
                         </div>
                     </div>
                     ${node.type !== 'sensor' ? `<div class="port port-in" data-port-in="${node.id}"></div>` : ''}
-                    ${node.type !== 'ai' ? `<div class="port port-out" onmousedown="UI.startWire(event, '${node.id}')"></div>` : ''}
+                    ${node.type !== 'ai' ? `<div class="port port-out" onmousedown="Viewport.startWire(event, '${node.id}')"></div>` : ''}
                 `;
 
-                // Internal Dragging Logic
+                // --- DRAGGING ENGINE (WORLD COMPENSATED) ---
                 let isDragging = false;
                 let dragOffset = { x: 0, y: 0 };
 
                 div.onmousedown = (e) => {
                     if(e.target.classList.contains('port')) return;
                     isDragging = true;
-                    SimEngine.selectedId = node.id;
-                    dragOffset = { x: e.clientX / SimEngine.camera.zoom - node.x, y: e.clientY / SimEngine.camera.zoom - node.y };
+                    Sim.selectedId = node.id;
+                    dragOffset = { x: e.clientX / this.cam.zoom - node.x, y: e.clientY / this.cam.zoom - node.y };
                     document.querySelectorAll('.node').forEach(n => n.classList.remove('selected'));
                     div.classList.add('selected');
                     e.stopPropagation();
@@ -606,8 +633,8 @@
 
                 window.addEventListener('mousemove', (e) => {
                     if(!isDragging) return;
-                    node.x = (e.clientX / SimEngine.camera.zoom - dragOffset.x);
-                    node.y = (e.clientY / SimEngine.camera.zoom - dragOffset.y);
+                    node.x = (e.clientX / this.cam.zoom - dragOffset.x);
+                    node.y = (e.clientY / this.cam.zoom - dragOffset.y);
                     div.style.left = node.x + 'px';
                     div.style.top = node.y + 'px';
                     this.drawWires();
@@ -623,28 +650,29 @@
             startWire(e, id) {
                 e.stopPropagation();
                 this.isWiring = true;
-                this.wireStart = id;
+                this.wireStartId = id;
                 document.getElementById('temp-wire').style.display = 'block';
             },
 
             drawWireGhost(e) {
-                const n = SimEngine.nodes.find(node => node.id === this.wireStart);
+                const n = Sim.nodes.find(node => node.id === this.wireStartId);
                 const rect = document.getElementById('viewport').getBoundingClientRect();
                 const x1 = n.x + 340;
                 const y1 = n.y + 60;
-                const x2 = (e.clientX - rect.left - SimEngine.camera.x) / SimEngine.camera.zoom;
-                const y2 = (e.clientY - rect.top - SimEngine.camera.y) / SimEngine.camera.zoom;
+                // Convert mouse screen space to world space for ghost
+                const x2 = (e.clientX - rect.left - this.cam.x) / this.cam.zoom;
+                const y2 = (e.clientY - rect.top - this.cam.y) / this.cam.zoom;
 
-                document.getElementById('temp-wire').setAttribute('d', `M ${x1} ${y1} C ${x1+120} ${y1}, ${x2-120} ${y2}, ${x2} ${y2}`);
+                document.getElementById('temp-wire').setAttribute('d', `M ${x1} ${y1} C ${x1+150} ${y1}, ${x2-150} ${y2}, ${x2} ${y2}`);
 
                 const target = document.elementFromPoint(e.clientX, e.clientY);
                 if(target?.dataset.portIn) {
                     const toId = target.dataset.portIn;
-                    if(toId !== this.wireStart) {
+                    if(toId !== this.wireStartId) {
                         this.isWiring = false;
                         document.getElementById('temp-wire').style.display = 'none';
-                        if(!SimEngine.wires.find(w => w.from === this.wireStart && w.to === toId)) {
-                            SimEngine.wires.push({ id: 'w_' + Date.now(), from: this.wireStart, to: toId });
+                        if(!Sim.wires.find(w => w.from === this.wireStartId && w.to === toId)) {
+                            Sim.wires.push({ id: 'w_' + Date.now(), from: this.wireStartId, to: toId });
                         }
                         this.drawWires();
                     }
@@ -653,35 +681,35 @@
 
             drawWires() {
                 const g = document.getElementById('wires-group');
-                const bl = document.getElementById('badge-layer');
-                g.innerHTML = ''; bl.innerHTML = '';
+                const hud = document.getElementById('hud-layer');
+                g.innerHTML = ''; hud.innerHTML = '';
 
-                SimEngine.wires.forEach(w => {
-                    const n1 = SimEngine.nodes.find(n => n.id === w.from);
-                    const n2 = SimEngine.nodes.find(n => n.id === w.to);
+                Sim.wires.forEach(w => {
+                    const n1 = Sim.nodes.find(n => n.id === w.from);
+                    const n2 = Sim.nodes.find(n => n.id === w.to);
                     if(!n1 || !n2) return;
 
                     const x1 = n1.x + 340, y1 = n1.y + 60;
                     const x2 = n2.x, y2 = n2.y + 60;
-                    const d = `M ${x1} ${y1} C ${x1+120} ${y1}, ${x2-120} ${y2}, ${x2} ${y2}`;
+                    const d = `M ${x1} ${y1} C ${x1+150} ${y1}, ${x2-150} ${y2}, ${x2} ${y2}`;
 
                     const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
                     path.setAttribute('d', d);
-                    path.setAttribute('class', `wire ${SimEngine.isRunning ? 'flow-active' : ''} ${SimEngine.selectedId === w.id ? 'selected' : ''}`);
-                    path.onclick = (e) => { SimEngine.selectedId = w.id; this.drawWires(); e.stopPropagation(); };
+                    path.setAttribute('class', `wire ${Sim.isRunning ? 'flow-active' : ''} ${Sim.selectedId === w.id ? 'selected' : ''}`);
+                    path.onclick = (e) => { Sim.selectedId = w.id; this.drawWires(); e.stopPropagation(); };
                     g.appendChild(path);
 
-                    const badgeCont = document.createElement('div');
-                    badgeCont.id = `badge-${w.id}`;
-                    badgeCont.className = 'cable-hud';
-                    badgeCont.style.left = (x1+x2)/2 + 'px';
-                    badgeCont.style.top = (y1+y2)/2 + 'px';
-                    bl.appendChild(badgeCont);
+                    const badge = document.createElement('div');
+                    badge.id = `badge-${w.id}`;
+                    badge.className = 'cable-hud';
+                    badge.style.left = (x1+x2)/2 + 'px';
+                    badge.style.top = (y1+y2)/2 + 'px';
+                    hud.appendChild(badge);
                 });
             },
 
-            updateNodeHUD(id, stats, type) {
-                const el = document.getElementById(`m-stack-${id}`);
+            updateNodeMetrics(id, stats, type) {
+                const el = document.getElementById(`met-${id}`);
                 const nodeEl = document.getElementById(id);
                 if(!el) return;
 
@@ -689,7 +717,7 @@
                 const bar = nodeEl.querySelector('.sim-bar');
                 bar.style.width = '100%'; setTimeout(() => bar.style.width = '0%', 1200);
 
-                const getMetrics = (mode) => {
+                const renderSection = (mode) => {
                     const d = stats[mode];
                     let h = `<div class="m-row"><span class="m-lbl">SIZE</span><span class="m-val">${d.size.toFixed(2)} KB</span></div>`;
                     if(type === 'ai') {
@@ -697,24 +725,24 @@
                         h += `<div class="m-row"><span class="m-lbl">TOKEN</span><span class="m-val">${d.tokens}</span></div>`;
                     } else {
                         h += `<div class="m-row"><span class="m-lbl">RAM</span><span class="m-val">${d.ram} MB</span></div>`;
-                        h += `<div class="m-row"><span class="m-lbl">OPS</span><span class="m-val">${stats.ops}</span></div>`;
+                        h += `<div class="m-row"><span class="m-lbl">COMP</span><span class="m-val">${stats.ops}</span></div>`;
                     }
                     return h;
                 };
 
                 el.innerHTML = `
-                    <div class="m-card ${!coilBetter ? 'active' : ''}"><span class="m-head">Standard</span>${getMetrics('json')}</div>
-                    <div class="m-card ${coilBetter ? 'active' : ''}"><span class="m-head">COIL v9</span>${getMetrics('coil')}</div>
+                    <div class="m-card ${!coilBetter ? 'active' : ''}"><span class="m-head">Standard</span>${renderSection('json')}</div>
+                    <div class="m-card ${coilBetter ? 'active' : ''}"><span class="m-head">Zenith</span>${renderSection('coil')}</div>
                 `;
             },
 
-            animatePacket(wireId, stats) {
+            animatePulse(wireId, stats) {
                 const b = document.getElementById(`badge-${wireId}`);
                 if(!b) return;
-                const util = (stats.coil.size * 5).toFixed(1);
+                const util = (stats.coil.size * 6.5).toFixed(1);
                 b.innerHTML = `
-                    <div class="badge text-orange-400">STD: ${(stats.json.size).toFixed(1)}K | Lat: ${(stats.json.size*5).toFixed(0)}ms</div>
-                    <div class="badge text-emerald-400">COIL: ${(stats.coil.size).toFixed(1)}K | Lat: ${(stats.coil.size*2).toFixed(0)}ms | BW: ${util}%</div>
+                    <div class="badge text-orange-400">JSON: ${(stats.json.size).toFixed(1)}K | ${(stats.json.size*6).toFixed(0)}ms</div>
+                    <div class="badge text-emerald-400">COIL: ${(stats.coil.size).toFixed(1)}K | ${(stats.coil.size*2).toFixed(0)}ms | BW: ${util}%</div>
                 `;
             },
 
@@ -729,25 +757,25 @@
             },
 
             openProps(id) {
-                const node = SimEngine.nodes.find(n => n.id === id);
-                SimEngine.selectedId = node.id;
+                const node = Sim.nodes.find(n => n.id === id);
+                Sim.selectedId = node.id;
                 const drawer = document.getElementById('prop-drawer');
                 const content = document.getElementById('prop-content');
                 drawer.style.display = 'flex';
 
                 let html = `
-                    <div class="input-group">
-                        <label>Hardware Identifier</label>
-                        <input id="p-name" type="text" value="${node.config.name}" class="input-field">
+                    <div class="mb-8">
+                        <label class="block text-[10px] font-black text-slate-500 uppercase tracking-widest mb-3">Logic Hardware Tag</label>
+                        <input id="p-name" type="text" value="${node.config.name}" class="w-full bg-slate-800 border border-slate-700 p-5 rounded-2xl text-white font-bold text-lg">
                     </div>
                 `;
 
                 if(node.type === 'ai') {
                     html += `
-                        <div class="input-group">
-                            <label>Tokenization Architecture</label>
-                            <select id="p-model" class="input-field">
-                                ${Object.entries(MODELS).map(([k,v]) => `<option value="${k}" ${node.config.model === k ? 'selected' : ''}>${v.name}</option>`).join('')}
+                        <div class="mb-8">
+                            <label class="block text-[10px] font-black text-slate-500 uppercase tracking-widest mb-3">Tokenization Model</label>
+                            <select id="p-model" class="w-full bg-slate-800 border border-slate-700 p-5 rounded-2xl text-white font-bold text-lg">
+                                ${Object.entries(HW_PROFILES).map(([k,v]) => `<option value="${k}" ${node.config.model === k ? 'selected' : ''}>${v.name}</option>`).join('')}
                             </select>
                         </div>
                     `;
@@ -755,23 +783,23 @@
 
                 if(node.type === 'sensor') {
                     html += `
-                        <div class="input-group">
-                            <label>Packet Repetitions</label>
-                            <input id="p-repeats" type="number" value="${node.config.repeats}" class="input-field">
+                        <div class="mb-8">
+                            <label class="block text-[10px] font-black text-slate-500 uppercase tracking-widest mb-3">Packet Repetitions</label>
+                            <input id="p-repeats" type="number" value="${node.config.repeats}" class="w-full bg-slate-800 border border-slate-700 p-5 rounded-2xl text-white font-bold text-lg">
                         </div>
-                        <div class="input-group">
-                            <label>Data Payload (JSON)</label>
-                            <div class="ace-editor-container" id="ace-ed"></div>
+                        <div class="mb-8">
+                            <label class="block text-[10px] font-black text-slate-500 uppercase tracking-widest mb-3">JSON Blueprint</label>
+                            <div id="ace-ed" style="height: 300px;" class="rounded-2xl border border-slate-700"></div>
                         </div>
                     `;
                 }
 
                 if(node.type === 'server') {
                     html += `
-                        <div class="input-group">
-                            <label>Logic Filter (JavaScript)</label>
-                            <p class="text-[9px] text-slate-600 mb-2 uppercase font-black">Input Object: 'data'</p>
-                            <div class="ace-editor-container" id="ace-ed"></div>
+                        <div class="mb-8">
+                            <label class="block text-[10px] font-black text-slate-500 uppercase tracking-widest mb-3">Logic Sandbox (JS)</label>
+                            <p class="text-[9px] text-slate-600 mb-2 font-black uppercase tracking-widest">Available Variable: 'data' (Array)</p>
+                            <div id="ace-ed" style="height: 300px;" class="rounded-2xl border border-slate-700"></div>
                         </div>
                     `;
                 }
@@ -786,37 +814,30 @@
             },
 
             saveProps() {
-                const n = SimEngine.nodes.find(node => node.id === SimEngine.selectedId);
+                const n = Sim.nodes.find(node => node.id === Sim.selectedId);
                 n.config.name = document.getElementById('p-name').value;
                 if(n.type === 'ai') n.config.model = document.getElementById('p-model').value;
-                if(n.type === 'sensor') { 
-                    n.config.repeats = parseInt(document.getElementById('p-repeats').value); 
-                    n.config.payload = this.ace.getValue(); 
-                }
-                if(n.type === 'server') { 
-                    n.config.filter = this.ace.getValue(); 
-                }
+                if(n.type === 'sensor') { n.config.repeats = parseInt(document.getElementById('p-repeats').value); n.config.payload = this.ace.getValue(); }
+                if(n.type === 'server') { n.config.filter = this.ace.getValue(); }
                 
-                // UPDATE LABEL WITHOUT RE-RENDERING THE WHOLE NODE
-                const nodeEl = document.getElementById(n.id);
-                nodeEl.querySelector('span').innerText = n.config.name;
-                
+                // CRITICAL FIX: Only update the label, don't re-render.
+                document.getElementById(n.id).querySelector('span').innerText = n.config.name;
                 this.closeProps();
             },
 
             closeProps() { document.getElementById('prop-drawer').style.display = 'none'; },
-            clearOverlays() { document.querySelectorAll('.metrics-stack, .cable-hud').forEach(el => el.innerHTML = ''); },
+            clearMetrics() { document.querySelectorAll('.metrics-grid, .cable-hud').forEach(el => el.innerHTML = ''); },
             toggleMonitor() {
                 const m = document.getElementById('monitor');
                 const i = document.getElementById('mon-toggle-icon');
-                const isMini = m.style.height === '48px';
-                m.style.height = isMini ? '320px' : '48px';
-                i.setAttribute('data-lucide', isMini ? 'chevron-down' : 'chevron-up');
+                this.monitorOpen = !this.monitorOpen;
+                m.style.height = this.monitorOpen ? '350px' : '52px';
+                i.setAttribute('data-lucide', this.monitorOpen ? 'chevron-down' : 'chevron-up');
                 lucide.createIcons();
             }
         };
 
-        window.onload = () => UI.init();
+        window.onload = () => Viewport.init();
     </script>
 </body>
 </html>
